@@ -1,0 +1,3171 @@
+
+
+html {
+  overflow-x: hidden; /* Força a não haver scroll horizontal NUNCA */
+  scroll-behavior: smooth; /* Você já tinha isto, mantemos aqui */
+}
+
+body {
+  overflow-x: hidden; /* Segurança extra para o body */
+  /* Combina as regras do reset com as suas originais */
+  overflow-y: visible; /* PERMITE a rolagem vertical e o sticky */
+  background-color: #121212;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  /* margin: 0; e padding: 0; já estão no reset (*) */
+}
+/* ==================================== */
+
+/* --- Cabeçalho --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #333;
+}
+
+.site-title a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav ul { list-style: none; /* margin: 0; padding: 0; já estão no reset (*) */ }
+nav li { display: inline-block; margin-left: 35px; }
+nav a { color: #FFFFFF; text-decoration: none; font-size: 1em; transition: color 0.3s ease; }
+nav a:hover { color: #FFCD00; }
+
+/* ==================================================== */
+/* =========== ESTILOS HERO DE ASSINATURA (VERSÃO ESQUERDA) =========== */
+/* ==================================================== */
+
+.hero-signature {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  
+  /* MUDANÇA AQUI: Alinha o conteúdo à esquerda */
+  justify-content: flex-start; 
+  align-items: center;
+  
+  padding: 20px 8%; /* Adiciona um bom espaçamento nas laterais */
+  overflow: hidden;
+  
+  /* MUDANÇA AQUI: Ajusta o gradiente e a posição da imagem */
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.8) 100%),
+    url('imagens/foto-hero1.webp');
+  background-size: cover;
+  background-position: center 70%; /* Move sua imagem um pouco para baixo e a mantém centralizada */
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.hero-signature-content {
+  position: relative;
+  z-index: 2;
+  
+  /* MUDANÇA AQUI: Alinha o texto à esquerda */
+  text-align: left; 
+  
+  max-width: 650px; /* Um pouco menor para dar mais espaço */
+  opacity: 0; /* Mantém a animação de entrada */
+  animation: fadeInHero 1.5s 0.5s forwards ease-out;
+}
+
+/* A animação continua a mesma */
+@keyframes fadeInHero {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headline {
+  font-size: 3.8em; /* Mantemos o tamanho impactante */
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.3;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+}
+
+.subheadline {
+  font-size: 1.2em;
+  color: #ccc;
+
+  
+  /* MUDANÇA AQUI: Remove a centralização automática */
+  /* margin: 0 auto 40px; */ 
+  margin-bottom: 4px;
+  max-width: 100%; /* Permite que o texto ocupe o espaço */
+}
+
+.cta-button-hero {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #111;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 35px;
+  border-radius: 50px;
+  box-shadow: 0 5px 30px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cta-button-hero:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 40px rgba(255, 215, 0, 0.5);
+}
+
+/* Indicador de Scroll Down (continua centralizado na página) */
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+}
+.scroll-down-indicator span {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  animation: scrollAnim 2s infinite;
+}
+@keyframes scrollAnim {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  50% { transform: translate(-50%, 10px); opacity: 0; }
+  100% { transform: translate(-50%, 0); opacity: 1; }
+}
+
+/* Ajustes para Celular (agora alinha ao centro no mobile para melhor leitura) */
+@media (max-width: 768px) {
+  .hero-signature {
+    justify-content: center; /* Volta a centralizar em telas pequenas */
+    padding: 20px;
+  }
+  .hero-signature-content {
+    text-align: center; /* Volta a centralizar em telas pequenas */
+  }
+  .headline {
+    font-size: 2.8em;
+  }
+}
+/* --- Animações (Página Inicial) --- */
+/* Estilo do cursor da animação, com o tamanho CORRIGIDO */
+.typed-cursor {
+    color: #FFCD00;
+    font-size: 1em; /* GARANTA QUE ESTE VALOR SEJA 1em */
+    animation: blink 0.7s infinite;
+
+}
+
+@keyframes blink {
+    0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; }
+}
+.shapes-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+}
+.floating-shape {
+    position: absolute;
+    background-color: #FFCD00;
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: floatAnimation 25s infinite linear;
+    bottom: -150px;
+    filter: blur(3px);
+}
+@keyframes floatAnimation {
+    from { transform: translateY(0); } to { transform: translateY(-100vh); }
+}
+.shape-1 { width: 80px; height: 80px; left: 15%; animation-duration: 20s; animation-delay: 2s; }
+.shape-2 { width: 100px; height: 100px; left: 40%; animation-duration: 30s; animation-delay: 5s; }
+.shape-3 { width: 40px; height: 40px; left: 75%; animation-duration: 18s; animation-delay: 0s; }
+.shape-4 { width: 60px; height: 60px; left: 90%; animation-duration: 22s; animation-delay: 8s; }
+.shape-5 { width: 30px; height: 30px; left: 5%; animation-duration: 28s; animation-delay: 15s; }
+
+/* ==================================================== */
+/* === NOVA VERSÃO: SEÇÃO 2 (DIAGNÓSTICO - Layout Card) === */
+/* ==================================================== */
+
+.secao-etapas-v2 { 
+    padding: 80px 20px; 
+}
+
+/* ============================================ */
+/* === CORREÇÃO (CENTRALIZAÇÃO VERTICAL DA IMAGEM) === */
+/* ============================================ */
+
+.diagnostico-card-unificado {
+  max-width: 1100px; 
+  margin: 0 auto; 
+  display: flex; 
+  gap: 40px; 
+  
+  /* A MUDANÇA ESTÁ AQUI: */
+  align-items: center; /* Centraliza os filhos (imagem e texto) verticalmente */
+  
+  background-color: #1c1c1c; 
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Coluna da Esquerda (Imagem) */
+/* ============================================ */
+/* === REFINAMENTO (IMAGEM EM CARD) === */
+/* ============================================ */
+
+/* O Wrapper da Imagem (Agora é o Card) */
+.diagnostico-imagem { 
+    flex-basis: 40%; 
+    flex-shrink: 0;
+    
+    /* ADIÇÕES PARA O EFEITO DE CARD: */
+    background-color: #111; /* Um fundo sutil, ligeiramente mais escuro que o card principal */
+    padding: 20px; /* Espaçamento interno para a imagem "respirar" */
+    border-radius: 15px; /* Bordas arredondadas para o card */
+    border: 1px solid #333; /* Borda sutil */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra interna sutil */
+}
+
+/* A Imagem (Agora dentro do Card) */
+.diagnostico-imagem img { 
+    width: 100%; 
+    border-radius: 8px; /* Bordas mais justas para a imagem interna */
+    
+    /* Mantemos o seu filtro excelente */
+    filter: grayscale(80%) contrast(120%); 
+    opacity: 0.7; 
+    display: block; 
+}
+
+/* Coluna da Direita (Conteúdo) */
+.diagnostico-conteudo { 
+    flex-basis: 60%; /* 60% para o texto */
+}
+.etapas-intro-v2 h2 { 
+    font-size: 2.8em; 
+    color: #FFD700; 
+    line-height: 1.2; 
+    margin-top: 0;
+}
+.etapas-intro-v2 p { 
+    font-size: 1.2em; 
+    color: #ccc; 
+    line-height: 1.7; 
+    margin-bottom: 40px; /* Espaço antes do primeiro step */
+}
+
+/* Os Novos "Mini-Cards" de Diagnóstico */
+.diagnostico-step-v2 {
+    background-color: rgba(0, 0, 0, 0.2); /* Fundo sutil */
+    border-left: 4px solid #FFD700; /* Destaque na borda */
+    padding: 20px 25px;
+    margin-bottom: 20px; /* Espaço entre os steps */
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+}
+.diagnostico-step-v2:hover {
+    background-color: rgba(0, 0, 0, 0.4); /* Leve destaque no hover */
+}
+.diagnostico-step-v2:last-child {
+    margin-bottom: 0;
+}
+
+.diagnostico-step-v2 h3 { 
+    font-size: 1.6em; 
+    color: #fff; 
+    margin-top: 0;
+    margin-bottom: 10px; 
+}
+.diagnostico-step-v2 p { 
+    font-size: 1.1em; 
+    line-height: 1.8; 
+    color: #ccc; 
+    margin-bottom: 0;
+}
+
+/* --- Responsividade (Nova Versão) --- */
+@media (max-width: 950px) {
+    .diagnostico-card-unificado { 
+        flex-direction: column; /* Empilha */
+        padding: 30px;
+    }
+    .diagnostico-imagem {
+         width: 100%; 
+         max-width: 450px; 
+         margin-bottom: 30px;
+         align-self: center; /* Centraliza a imagem no mobile */
+    }
+    .diagnostico-conteudo {
+        flex-basis: auto; 
+        width: 100%;
+    }
+    .etapas-intro-v2 h2 {
+        text-align: center; /* Centraliza o título no mobile */
+    }
+}
+/* ==================================================== */
+/* =========== ESTILOS DO VEREDITO FINAL =========== */
+/* ==================================================== */
+
+/* ==================================================== */
+/* === REFINAMENTO SEÇÃO VEREDITO (ESTRUTURA FORTE) === */
+/* ==================================================== */
+
+.secao-veredicto { 
+    padding: 60px 20px; 
+}
+
+/* O Card (Agora com Destaque no Topo) */
+.veredicto-container {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 50px;
+    background-color: #1c1c1c; 
+    border: 1px solid #333;
+    border-radius: 12px; 
+    text-align: center;
+    /* NOVO DESTAQUE VISUAL FORTE: */
+    border-top: 4px solid #FFD700;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* 1. NOVO ÍCONE (Bússola para "Método") */
+.veredicto-icon {
+    font-size: 3.5em; /* Ícone grande */
+    color: #FFD700;
+    margin-bottom: 30px;
+}
+.veredicto-icon i { 
+    color: #FFD700; /* Garante a cor no ícone */ 
+}
+
+/* 2. Texto de Introdução */
+.veredicto-intro {
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #e0e0e0; /* Branco suave */
+    margin: 0;
+}
+
+/* 3. A HEADLINE (Mensagem Principal) */
+.veredicto-headline {
+    font-size: 2.8em; /* GRANDE E IMPONENTE */
+    font-weight: 700;
+    color: #FFD700; /* Sua cor de destaque */
+    text-transform: uppercase;
+    margin: 25px 0; /* Respiro para dar ênfase */
+}
+
+/* 4. Texto de Conclusão */
+.veredicto-conclusao {
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #aaa; /* Mais sutil, como um pensamento final */
+    font-style: italic;
+    margin: 0;
+}
+
+/* Responsividade (Ajuste de fonte) */
+@media (max-width: 768px) {
+    .veredicto-intro, .veredicto-conclusao {
+        font-size: 1.1em;
+    }
+    .veredicto-headline {
+        font-size: 2em; /* Ajusta para celular */
+    }
+    .veredicto-container {
+        padding: 40px 25px;
+    }
+}
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO 'A ESTRATEGA' =========== */
+/* ==================================================== */
+
+.secao-estratega {
+  padding: 80px 20px;
+  position: relative;
+}
+/* LINHA DIVISORIA */
+.divisor-brilho {
+  width: 100%;             /* O container ocupa toda a largura disponível */
+  height: 1px;               /* A altura total do nosso elemento */
+  display: flex;
+  justify-content: center; /* Centraliza a linha que vamos criar */
+  align-items: center;
+  margin-bottom: 60px;     /* O mesmo espaçamento que você já usava */
+  background: linear-gradient(
+    to right, 
+    transparent 0%, 
+    #FFD700 50%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 15px -5px #FFD700; /* O efeito de "glow" (brilho) */
+  border-radius: 5px;      /* Suaviza as bordas do brilho */
+}
+
+/* O Divisor Temático */
+.breaker-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+.breaker-line {
+  height: 1px;
+  width: 100px;
+  background-color: #444;
+  border: none;
+}
+.breaker-icon {
+  font-size: 1.5em;
+  color: #FFD700;
+  margin: 0 20px;
+  border: 1px solid #444;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* O Card Principal */
+.estratega-card {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* A Imagem */
+.estratega-imagem-wrapper {
+  flex-shrink: 0;
+  margin-left: -50px; /* Puxa a imagem para fora do card */
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+.estratega-imagem-wrapper img {
+  width: 350px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* O Conteúdo do Manifesto */
+.estratega-conteudo {
+  padding: 50px;
+  padding-left: 30px;
+}
+.estratega-conteudo h2 {
+  font-size: 2.5em;
+  color: #FFD700;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.estratega-conteudo p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+/* A Citação de Destaque */
+.estratega-conteudo blockquote {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-left: 3px solid #FFD700;
+  border-radius: 0 8px 8px 0;
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.7;
+}
+
+/* Ajustes para Celular */
+@media (max-width: 900px) {
+  .estratega-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .estratega-imagem-wrapper {
+    margin: -60px 0 30px 0;
+    width: 80%;
+  }
+  .estratega-imagem-wrapper img {
+    width: 100%;
+  }
+  .estratega-conteudo {
+    padding: 10px 30px 30px;
+  }
+  .estratega-conteudo blockquote {
+    text-align: left;
+  }
+}
+
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO 'ARSENAL' =========== */
+/* ==================================================== */
+
+.secao-arsenal {
+  padding: 80px 20px;
+}
+
+.arsenal-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.arsenal-titulo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.arsenal-titulo h2 {
+  font-size: 2.5em;
+  color: #FFD700;
+  font-family: 'serif'; /* Uma fonte mais elegante para o título */
+}
+
+/* A Grade 3x3 */
+.arsenal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* Os Cards Individuais */
+.guide-card {
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* Para a tag 'Grátis' */
+}
+
+.guide-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagem do Card */
+.card-image {
+  overflow: hidden; /* Garante que o zoom da imagem não vaze */
+}
+.card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.guide-card:hover .card-image img {
+  transform: scale(1.05); /* Efeito de zoom na imagem */
+}
+
+/* Conteúdo do Card */
+.card-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Garante que os cards tenham a mesma altura */
+}
+.card-content h3 {
+  font-size: 1.5em;
+  color: #fff;
+  margin: 0 0 15px 0;
+}
+.card-content p {
+  font-size: 1em;
+  color: #ccc;
+  line-height: 1.7;
+  flex-grow: 1; /* Empurra o botão para o final */
+  margin-bottom: 25px;
+}
+
+/* Botão de Ação (CTA) do Card */
+.card-cta {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #111;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+.card-cta:hover {
+  background-color: #fff;
+}
+
+/* A Tag 'Grátis' */
+.free-tag {
+  position: absolute;
+  top: 15px;
+  right: -1px; /* Para um leve efeito de sobreposição */
+  background-color: #e44d26; /* Um vermelho que chama a atenção */
+  color: #fff;
+  padding: 5px 15px;
+  font-size: 0.9em;
+  font-weight: bold;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -2px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Ajustes para Celular */
+@media (max-width: 950px) {
+  .arsenal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .arsenal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO 'O QUE DIZEM OS LEITORES' =========== */
+/* ==================================================== */
+
+.secao-mural {
+  padding: 80px 20px;
+}
+
+.mural-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* O Divisor com Aspas */
+.mural-breaker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.breaker-icon-quote {
+  font-size: 4em;
+  font-family: 'Times New Roman', Times, serif;
+  color: #FFD700;
+  margin: 0 20px;
+  line-height: 1;
+}
+
+.mural-titulo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.mural-titulo h2 {
+  font-size: 2.5em;
+  color: #fff;
+  font-family: 'serif';
+  margin-bottom: 10px;
+}
+.mural-titulo p {
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+/* A Grade 3x3 */
+.mural-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Os Cards de Depoimento */
+.testimonial-card-v2 {
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card-v2:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Aspa gigante de fundo */
+.testimonial-card-v2::before {
+  content: "“";
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  font-size: 12em;
+  font-family: "Times New Roman", Times, serif;
+  color: rgba(255, 255, 255, 0.04);
+  z-index: 1;
+}
+
+/* Conteúdo do Card */
+.card-stars, .card-quote, .card-author-info {
+  position: relative;
+  z-index: 2;
+}
+
+.card-stars {
+  font-size: 1.2em;
+  color: #FFD700;
+  margin-bottom: 20px;
+}
+
+.card-quote {
+  font-size: 1.15em;
+  font-style: italic;
+  color: #e0e0e0;
+  line-height: 1.8;
+  flex-grow: 1; /* Empurra o autor para a base do card */
+  margin: 0 0 30px 0;
+}
+
+.card-author-info {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+}
+
+.author-initials {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.author-details .author-name {
+  font-weight: bold;
+  color: #fff;
+  display: block;
+}
+.author-details .author-meta {
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+/* Ajustes para Celular */
+@media (max-width: 950px) {
+  .mural-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO 'ÚLTIMAS DO BLOG' =========== */
+/* ==================================================== */
+
+.secao-blog { padding: 80px 20px; }
+.blog-container { max-width: 1100px; margin: 0 auto; }
+
+/* Divisor com Ícone de Caneta */
+.blog-breaker { display: flex; align-items: center; justify-content: center; margin-bottom: 50px; }
+.blog-breaker .breaker-icon { font-size: 1.8em; }
+
+.blog-titulo { text-align: center; margin-bottom: 50px; }
+.blog-titulo h2 { font-size: 2.5em; color: #fff; font-family: 'serif'; }
+
+/* Card do Artigo em Destaque */
+.featured-post-card {
+  display: flex;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  border: 1px solid #333;
+}
+.featured-image {
+  flex-basis: 50%;
+  flex-shrink: 0;
+}
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.featured-post-card:hover .featured-image img {
+  transform: scale(1.05);
+}
+.featured-content {
+  flex-basis: 50%;
+  padding: 40px;
+}
+.post-meta {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+.featured-content h3 {
+  font-size: 2em;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+.featured-content h3 a {
+  color: #FFD700;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.featured-content h3 a:hover {
+  color: #fff;
+}
+.post-excerpt {
+  font-size: 1.1em;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+.post-cta {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #111;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+.post-cta:hover { background-color: #fff; }
+
+/* Grade de Artigos Secundários */
+.secondary-posts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.secondary-post-card {
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #333;
+  transition: transform 0.3s ease;
+}
+.secondary-post-card:hover {
+  transform: translateY(-5px);
+}
+.secondary-image img {
+  width: 100%;
+  height: 200px; /* Altura fixa para as imagens */
+  object-fit: cover;
+}
+.secondary-content { padding: 25px; }
+.secondary-content h4 { font-size: 1.4em; line-height: 1.4; margin-bottom: 20px; min-height: 80px; }
+.secondary-content h4 a { color: #fff; text-decoration: none; transition: color 0.3s; }
+.secondary-content h4 a:hover { color: #FFD700; }
+.post-cta-secondary {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Ajustes para Celular */
+@media (max-width: 950px) {
+  .featured-post-card { flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .secondary-posts-grid { grid-template-columns: 1fr; }
+}
+
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO FINAL (VERSÃO INTEGRADA) =========== */
+/* ==================================================== */
+
+.secao-final-cta {
+  padding: 80px 20px;
+}
+
+.cta-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cta-card {
+  display: flex;
+  align-items: center;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+/* Coluna da Esquerda */
+.cta-conteudo {
+  flex-basis: 55%;
+  padding: 50px;
+}
+.cta-conteudo h2 {
+  font-size: 2.2em;
+  color: #FFD700;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+.cta-conteudo p {
+  font-size: 1.1em;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* Coluna da Direita */
+.cta-imagem {
+  flex-basis: 45%;
+  align-self: stretch;
+}
+.cta-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==================================================== */
+/* === ESTILOS DA SEÇÃO FINAL CTA (VERSÃO REFINADA) === */
+/* ==================================================== */
+
+/* --- Layout Principal da Seção --- */
+.secao-final-cta {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta-container {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px; /* Espaçamento entre o formulário e a capa */
+  background-color: #1c1c1c;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+.cta-conteudo {
+  flex: 1; /* Permite que o conteúdo ocupe o espaço disponível */
+  max-width: 500px;
+}
+
+/* --- Efeito 3D na Capa --- */
+.capa-container {
+  flex: 1; /* Permite que a capa ocupe o espaço disponível */
+  max-width: 400px;
+  perspective: 1000px; /* Cria o "palco" 3D */
+}
+
+.capa-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  /* Transição suave para a animação */
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+.capa-container:hover img {
+  transform: rotateY(-15deg) scale(1.05); /* Inclina e aumenta no hover */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6); /* Sombra mais forte para "elevar" */
+}
+
+
+/* --- Estilos do Formulário e Conteúdo --- */
+.cta-conteudo h2 {
+  font-size: 2.8em; /* Aumentei um pouco para mais impacto */
+  color: #FFD700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.cta-conteudo p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+/* Estilizando os inputs do MailerLite */
+.form-control {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 1em;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #FFD700; /* Destaque ao focar */
+  transform: scale(1.02);
+}
+
+/* Estilizando o botão do MailerLite */
+button.primary {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #FFD700;
+  color: #111;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.primary:hover {
+  transform: scale(1.05) translateY(-4px); /* Efeito de "levantar" */
+  box-shadow: 0 10px 20px -5px rgba(255, 215, 0, 0.3); /* Brilho sutil */
+}
+
+
+/* --- RESPONSIVIDADE PARA CELULAR --- */
+@media (max-width: 900px) {
+  .cta-card {
+    flex-direction: column; /* Empilha os itens verticalmente */
+    padding: 40px 25px;
+    text-align: center;
+  }
+  
+  /* Invertendo a ordem visual no mobile (Opcional, mas recomendado) */
+  .cta-conteudo {
+    order: 2; /* O formulário agora aparece em segundo */
+  }
+
+  .capa-container {
+    order: 1; /* A capa do livro aparece primeiro */
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 280px; /* Limita o tamanho da capa no celular */
+  }
+
+  .cta-conteudo h2 {
+    font-size: 2.2em; /* Ajusta o tamanho da fonte para telas menores */
+  }
+}
+
+/* ==================================================== */
+/* =========== FIM DE PAGINA INICIAL =========== */
+/* ==================================================== */
+
+/* Estilos do Rodapé */
+
+footer {
+    background-color: #121212; /* O mesmo preto grafite do corpo, para uma transição suave */
+    border-top: 1px solid #333; /* Uma linha sutil para separar do conteúdo */
+    color: rgba(255, 255, 255, 0.7); /* Texto branco, mas com leve transparência para ser mais suave */
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin: 0 15px; /* Espaço entre os links */
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ffc107; /* Nosso dourado ao passar o mouse */
+}
+
+.copyright {
+    font-size: 0.9em;
+    opacity: 0.6; /* Ainda mais sutil */
+    margin: 0;
+}
+
+/* ==================================================== */
+/* === NOVA VERSÃO: "SOBRE MIM" (Layout Fluido 2 Colunas) === */
+/* ==================================================== */
+
+/* Reset Global (Garantia anti-bug) */
+html, body {
+    overflow-x: hidden;
+}
+
+.secao-jornada-fluida { 
+    padding: 80px 20px; 
+}
+.jornada-titulo { 
+    text-align: center; 
+    margin-bottom: 60px; 
+}
+.jornada-titulo h2 { 
+    font-size: 2.8em; 
+    color: #FFD700; 
+}
+
+/* O Container principal de 2 colunas */
+.jornada-container-fluido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start; /* Alinha o topo do texto com o topo da imagem */
+}
+
+/* 1. Coluna da Esquerda (O Texto que Rola) */
+.jornada-coluna-texto {
+    flex: 1.5; /* Dá um pouco mais de espaço para o texto */
+    text-align: left;
+}
+.jornada-coluna-texto h3 { 
+    font-size: 1.8em; 
+    color: #FFFFFF; 
+    margin-top: 0;
+    margin-bottom: 20px; 
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333; /* Separador sutil entre tópicos */
+}
+/* O primeiro H3 não precisa de separador em cima */
+.jornada-coluna-texto h3:not(:first-child) {
+    margin-top: 40px; /* Espaço entre os tópicos da história */
+}
+
+.jornada-coluna-texto p { 
+    font-size: 1.1em; 
+    line-height: 1.8; 
+    color: #ccc; 
+    margin-bottom: 20px;
+}
+.jornada-coluna-texto p:last-child {
+    margin-bottom: 0;
+}
+
+/* 2. Coluna da Direita (A Imagem que Rola) */
+.jornada-coluna-imagem {
+    flex: 1; /* Ocupa menos espaço que o texto */
+    
+    /* Faz a imagem rolar, mas mantém o alinhamento no topo */
+    position: sticky;
+    top: 120px; 
+}
+.jornada-coluna-imagem img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    display: block;
+}
+
+/* 3. A Imagem para Mobile (escondida no desktop) */
+.jornada-imagem-mobile {
+    display: none; /* Escondida no desktop */
+}
+
+/* 4. A Conclusão Final */
+.jornada-conclusao-fluida {
+    text-align: center;
+    padding: 60px 20px 0 20px;
+}
+.jornada-conclusao-fluida p {
+    display: inline-block; 
+    padding: 25px 35px;
+    background-color: rgba(255, 215, 0, 0.1);
+    border: 1px solid #FFD700;
+    border-radius: 12px;
+    font-size: 1.5em; 
+    font-style: italic;
+    font-weight: 700;
+    color: #FFD700;
+}
+
+/* 5. RESPONSIVIDADE (Celular) */
+@media (max-width: 950px) {
+    .jornada-container-fluido {
+        flex-direction: column; /* Empilha as colunas */
+    }
+    
+    /* Esconde a imagem da coluna da direita no mobile */
+    .jornada-coluna-imagem {
+        display: none; 
+    }
+    
+    /* MOSTRA a imagem (agora dentro do texto) no mobile */
+    .jornada-imagem-mobile {
+        display: block; /* Mostra a imagem */
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 25px; /* Espaço abaixo da imagem */
+    }
+
+    .jornada-coluna-texto h3 {
+        font-size: 1.6em;
+    }
+}
+/* ==================================================== */
+/* =========== ESTILOS DO 'PAINEL DE CONTROLO' =========== */
+/* ==================================================== */
+
+.secao-painel {
+  padding: 80px 20px;
+}
+
+.painel-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.painel-titulo {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.painel-titulo h2 {
+  font-size: 2.8em;
+  color: #fff;
+  font-family: 'serif';
+  margin-bottom: 15px;
+}
+.painel-titulo p {
+  font-size: 1.2em;
+  color: #ccc;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* A Grade de Soluções */
+.painel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* O Card de Solução */
+.solution-card {
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.solution-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.solution-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px 15px 0 0; /* Arredonda apenas os cantos de cima */
+}
+
+.solution-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Garante que os cards tenham a mesma altura */
+}
+.solution-content h3 {
+  font-size: 1.8em;
+  color: #FFD700;
+  margin: 0 0 15px 0;
+}
+.solution-content p {
+  font-size: 1.1em;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+/* A Lista de Benefícios */
+.solution-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  flex-grow: 1; /* Empurra o botão para o final */
+}
+.solution-features li {
+  color: #e0e0e0;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.solution-features li span { /* O ícone do tópico */
+  color: #FFD700;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* O Botão de Ação */
+.solution-cta {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #111;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  align-self: flex-start; /* Alinha o botão no início do espaço disponível */
+}
+.solution-cta:hover {
+  background-color: #fff;
+}
+
+/* Ajustes para Celular */
+@media (max-width: 900px) {
+  .painel-grid {
+    grid-template-columns: 1fr; /* Vira uma única coluna */
+  }
+}
+
+/* ==================================================== */
+/* =========== ESTILOS 'BLOG CLÁSSICO REFINADO' =========== */
+/* ==================================================== */
+
+.secao-blog-refinado { padding: 80px 20px; }
+.blog-container-refinado {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Coluna fixa de 300px para a sidebar, o resto para o feed */
+  gap: 60px;
+}
+
+/* A Barra Lateral */
+.sidebar { display: flex; flex-direction: column; gap: 40px; }
+.widget { background-color: #1c1c1c; padding: 25px; border-radius: 12px; border: 1px solid #333; }
+.widget-title {
+  font-size: 1.3em;
+  color: #fff;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #444;
+}
+
+/* Widget: Sobre Mim */
+.widget-sobre-mim { text-align: center; }
+.profile-pic { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+.widget-sobre-mim p { color: #ccc; font-size: 0.95em; line-height: 1.7; margin-bottom: 15px; }
+.widget-link { color: #FFD700; text-decoration: none; font-weight: bold; }
+
+/* Widget: Categorias */
+.widget-categorias { display: flex; flex-wrap: wrap; gap: 10px; }
+.widget-categorias a {
+  background-color: #333;
+  color: #ccc;
+  padding: 8px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: all 0.3s;
+}
+.widget-categorias a:hover { background-color: #FFD700; color: #111; }
+
+/* Widget: E-book */
+.widget-ebook img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
+.widget-cta {
+  display: block;
+  background-color: #FFD700;
+  color: #111;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.widget-cta:hover { background-color: #fff; }
+
+/* O Feed Principal de Artigos */
+.feed-principal { display: flex; flex-direction: column; gap: 50px; }
+.post-card-feed {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Coluna fixa para a imagem */
+  gap: 30px;
+  align-items: center;
+}
+.post-feed-image img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; transition: opacity 0.3s; }
+.post-feed-image:hover img { opacity: 0.85; }
+.post-feed-content .post-meta { font-size: 0.9em; color: #aaa; margin-bottom: 10px; }
+.post-feed-content h2 { font-size: 1.8em; line-height: 1.4; margin-bottom: 15px; }
+.post-feed-content h2 a { color: #fff; text-decoration: none; transition: color 0.3s; }
+.post-feed-content h2 a:hover { color: #FFD700; }
+.post-excerpt { font-size: 1.05em; color: #ccc; line-height: 1.7; }
+
+/* Ajustes para Celular */
+@media (max-width: 950px) {
+  .blog-container-refinado { grid-template-columns: 1fr; }
+  .sidebar { order: 2; } /* Manda a sidebar para baixo no mobile */
+  .feed-principal { order: 1; }
+}
+@media (max-width: 600px) {
+  .post-card-feed { grid-template-columns: 1fr; } /* Imagem fica em cima do texto */
+}
+
+
+/* ==================================================== */
+/* =========== ESTILOS DO 'CONVITE À CONVERSA' (CONTATO) =========== */
+/* ==================================================== */
+
+.secao-contato { padding: 80px 20px; }
+.contato-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* Coluna da esquerda um pouco menor */
+  gap: 60px;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+/* Coluna da Esquerda */
+.contato-info { padding: 50px; text-align: center; }
+.contato-imagem {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 25px;
+  border: 4px solid #333;
+}
+.contato-info h2 { font-size: 2.2em; color: #FFD700; margin-bottom: 15px; }
+.contato-info p { color: #ccc; line-height: 1.7; margin-bottom: 30px; }
+.social-links { display: flex; justify-content: center; gap: 15px; }
+.social-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #333;
+  padding: 8px 15px;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+.social-links a:hover { background-color: #FFD700; color: #111; }
+
+/* Coluna da Direita (Formulário) */
+.contato-form { padding: 50px; }
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  color: #ccc;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+}
+.contato-form input,
+.contato-form textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #111;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.contato-form input:focus,
+.contato-form textarea:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+.cta-button-form {
+  width: 100%;
+  padding: 15px;
+  background-color: #FFD700;
+  color: #111;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.cta-button-form:hover { background-color: #fff; }
+
+/* Ajustes para Celular */
+@media (max-width: 900px) {
+  .contato-container { grid-template-columns: 1fr; }
+}
+
+
+
+
+
+
+
+/* Estilos para Títulos de Página */
+
+/* Container Principal para Páginas de Conteúdo */
+.page-container {
+    max-width: 1100px;    /* Largura máxima do conteúdo */
+    margin: 0 auto;       /* Centraliza esse bloco na tela */
+    padding: 60px 20px;   /* Espaçamento: 60px em cima/baixo, 20px nas laterais */
+}
+
+.page-title {
+    font-family: 'Lora', serif;
+    font-size: 3em;
+    text-align: center;
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto; /* Centraliza e adiciona espaço abaixo */
+    font-size: 1.1em;
+    opacity: 0.8;
+}
+
+/* Estilos da Página de Contato */
+
+.contact-info {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contact-email {
+    display: inline-block; /* Permite aplicar padding e margem */
+    background-color: #ffc107; /* Nosso dourado de destaque */
+    color: #121212; /* Texto escuro */
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: transform 0.3s ease;
+}
+
+.contact-email:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos (ATUALIZADOS) da Página de Listagem do Blog */
+
+.blog-layout-container {
+    display: flex;
+    gap: 40px; /* Espaço entre o conteúdo principal e a sidebar */
+    margin-top: 50px;
+}
+
+.blog-main-content {
+    flex: 2.5; /* Faz o conteúdo principal ser ~2.5x mais largo que a sidebar */
+    order: 2;
+}
+
+.blog-sidebar {
+    flex: 1; /* A sidebar ocupa 1 parte do espaço */
+    order: 1;
+}
+/* Ajuste para o botão de e-book na sidebar */
+.sidebar-widget .cta-button {
+    display: block; /* Força o botão a se comportar como um bloco */
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    box-sizing: border-box; /* Garante que o padding não 'estoure' a largura */
+    color: #333;
+}
+
+/* Os estilos de .blog-post-item, .post-item-image, etc., que já tínhamos, continuam ótimos. */
+/* Apenas garantimos que eles ainda existem no seu CSS. */
+.blog-post-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+.post-item-image { flex: 1; min-width: 200px; }
+.post-item-image img { width:100%; height:100%; object-fit:cover; border-radius:5px; }
+.post-item-content { flex: 2; }
+.post-item-content h2 { font-family: 'Lora', serif; font-size: 2em; margin: 0 0 10px 0; }
+.post-item-content h2 a { color: #FFFFFF; text-decoration: none; transition: color 0.3s ease; }
+.post-item-content h2 a:hover { color: #FFCD00; }
+
+
+/* --- Estilos para a nova Barra Lateral (Sidebar) --- */
+.sidebar-widget {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.widget-title {
+    font-family: 'Lora', serif;
+    font-size: 1.5em;
+    color: #FFCD00;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Foto de perfil redonda */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 15px auto; /* Centraliza a foto */
+}
+
+.sidebar-widget p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.sidebar-widget a {
+    color: #FFCD00;
+    font-weight: bold;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list li {
+    margin-bottom: 10px;
+}
+
+.category-list a {
+    text-decoration: none;
+    font-weight: normal;
+    transition: all 0.2s ease;
+}
+
+.category-list a:hover {
+    padding-left: 5px; /* Efeito sutil de deslocamento */
+}
+
+.sidebar-widget img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.sidebar-widget p a {
+    color: #FFCD00;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.sidebar-widget p a:hover {
+    text-decoration: none;
+}
+
+/* Correção para a cor do texto do botão na sidebar */
+.sidebar-widget .cta-button {
+    color: #121212; /* Força o texto a ser escuro, vencendo a outra regra! */
+}
+
+/* --- Responsividade para o novo layout --- */
+@media (max-width: 992px) {
+    .blog-layout-container {
+        flex-direction: column; /* Empilha a sidebar embaixo do conteúdo */
+    }
+}
+
+/* Estilos do Modelo de Artigo Individual */
+
+.post-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.featured-image {
+    margin-bottom: 40px;
+}
+
+.post-body {
+    font-size: 1.15em; /* Tamanho de fonte confortável para leitura */
+    line-height: 1.8; /* Espaçamento generoso entre as linhas */
+    opacity: 0.9;
+}
+
+.post-body h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #ffc107;
+}
+
+.post-body blockquote {
+    border-left: 3px solid #ffc107;
+    margin-left: 0;
+    padding-left: 25px;
+    font-style: italic;
+    font-size: 1.2em;
+    opacity: 1;
+    color: #FFFFFF;
+}
+
+.post-body ul {
+    list-style-position: inside;
+    padding-left: 20px;
+}
+
+/* Estilos da Seção de Testemunhos */
+
+/* Estilos (ATUALIZADOS) da Seção de Testemunhos */
+
+.testimonials {
+    background-color: #121212;
+    padding: 80px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-subtitle {
+    font-size: 1.1em;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+.testimonial-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: #1e293b; /* Um tom de azul-escuro, como na referência */
+    border: 1px solid #334155;
+    padding: 30px;
+    border-radius: 15px; /* Bordas mais arredondadas */
+    flex: 1 1 320px;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-stars {
+    color: #facc15; /* Amarelo/dourado para as estrelas */
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.testimonial-card blockquote {
+    margin: 0 0 25px 0;
+    font-size: 1.1em;
+    font-style: normal; /* Removemos o itálico padrão */
+    opacity: 0.9;
+    flex-grow: 1; /* Truque para empurrar o autor para o final */
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o avatar e o texto */
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px; /* Quadrado com cantos arredondados, por enquanto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.author-details cite {
+    display: block;
+    font-weight: bold;
+    font-style: normal;
+    color: #FFFFFF; /* Nome do autor em branco */
+}
+
+.author-details span {
+    font-size: 0.9em;
+    opacity: 0.6;
+}
+
+/* Estilo para a Animação de Digitação */
+.typed-cursor {
+    color: #ffc107; /* Cor dourada do cursor */
+    font-size: 1em;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Estilos para a Animação de Fundo Flutuante */
+
+.hero {
+    /* Precisamos adicionar isso para que as formas flutuem dentro da seção */
+    position: relative;
+    overflow: hidden; /* Evita que as formas saiam para fora da seção */
+}
+
+.shapes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Coloca o container de formas atrás do texto */
+}
+
+.floating-shape {
+    position: absolute;
+    background-color: #ffc107; /* Nossa cor dourada */
+    opacity: 0.15; /* MUITO transparente para ser sutil */
+    border-radius: 50%; /* Faz a maioria das formas ser circular */
+    
+    /* A mágica da animação acontece aqui */
+    animation: floatAnimation 25s infinite linear;
+    bottom: -150px; /* Começa a animação de baixo, fora da tela */
+}
+
+/* Animação que move as formas de baixo para cima */
+@keyframes floatAnimation {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100vh); /* Move para cima até sumir */
+    }
+}
+
+/* Personalizando cada forma para não ficarem todas iguais */
+.shape-1 {
+    width: 80px;
+    height: 80px;
+    left: 15%;
+    animation-duration: 20s;
+    animation-delay: 2s;
+}
+
+.shape-2 {
+    width: 100px;
+    height: 100px;
+    left: 40%;
+    animation-duration: 30s;
+    animation-delay: 5s;
+}
+
+.shape-3 {
+    width: 40px;
+    height: 40px;
+    left: 75%;
+    animation-duration: 18s;
+    animation-delay: 0s;
+}
+
+.shape-4 {
+    width: 60px;
+    height: 60px;
+    left: 90%;
+    animation-duration: 22s;
+    animation-delay: 8s;
+}
+
+.shape-5 {
+    width: 30px;
+    height: 30px;
+    left: 5%;
+    animation-duration: 28s;
+    animation-delay: 15s;
+}
+
+/* --- NOVAS FORMAS PARA A ANIMAÇÃO --- */
+
+/* 1. Para criar um QUADRADO */
+.shape-square {
+    border-radius: 5px; /* Apenas um leve arredondamento nos cantos, em vez de 50% */
+}
+
+/* 2. Para criar um SINAL DE '+' */
+.shape-plus {
+    background-color: transparent; /* A 'caixa' principal fica invisível */
+    border-radius: 0;
+}
+/* Usamos CSS avançado para desenhar as duas barras do '+' */
+.shape-plus::before,
+.shape-plus::after {
+    content: '';
+    position: absolute;
+    background-color: #ffc107;
+}
+.shape-plus::before { /* Barra vertical */
+    width: 25%; height: 100%; left: 37.5%;
+}
+.shape-plus::after { /* Barra horizontal */
+    width: 100%; height: 25%; top: 37.5%;
+}
+
+
+/* 3. Para criar um CORAÇÃO (usando um truque simples com texto) */
+.shape-heart {
+    background-color: transparent; /* Fundo invisível */
+    color: #ffc107; /* Cor do caractere de coração */
+    font-size: 50px; /* Tamanho do coração (ajuste se quiser maior ou menor) */
+    
+    /* Centraliza o caractere dentro da div */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos para os Filtros de Categoria do Blog */
+
+.category-filters {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espaço entre os botões */
+}
+
+.filter-button {
+    background-color: transparent;
+    border: 1px solid #333; /* Borda sutil */
+    color: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+    border-radius: 20px; /* Bordas bem arredondadas para um visual de 'pílula' */
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #333;
+    color: #121212;
+}
+
+/* Estilo para o botão que está ativo na página atual */
+.filter-button.active {
+    background-color: #FFCD00; /* Nosso dourado */
+    color: #121212;
+    border-color: #FFCD00;
+    font-weight: bold;
+}
+
+/* Estilos da Seção de Formulário */
+.form-section {
+    background-color: #1a1a1a; /* Um fundo sutilmente diferente para destacar */
+    padding: 80px 20px;
+}
+/* ==========================================================================
+   Estilos ATUALIZADOS para o Formulário MailerLite
+   ========================================================================== */
+
+/* Remove o fundo e borda padrão do container do formulário */
+#mlb2-31332246 .ml-form-embedWrapper {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+/* Deixa o texto de introdução do formulário com a nossa cor */
+#mlb2-31332246 .ml-form-embedContent p {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+/* Estiliza os campos de input (Nome e E-mail) */
+#mlb2-31332246 .form-control {
+    background-color: #121212 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #333 !important;
+    border-radius: 5px !important;
+    font-family: 'Montserrat', sans-serif;
+    padding: 15px !important;
+    line-height: normal !important;
+    height: auto;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Estiliza o texto de placeholder dentro dos campos */
+#mlb2-31332246 .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Efeito de foco: a borda fica dourada quando o usuário clica no campo */
+#mlb2-31332246 .form-control:focus {
+    border-color: #FFCD00 !important;
+    box-shadow: none !important;
+}
+
+/* --- A MUDANÇA ESTÁ AQUI --- */
+
+/* 1. Diz ao container do botão para centralizar seu conteúdo */
+#mlb2-31332246 .ml-form-embedSubmit {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* 2. Ajusta o botão para ter largura automática */
+#mlb2-31332246 .ml-form-embedSubmit button {
+    display: inline-block !important;  /* Permite largura automática mas com padding */
+    width: auto !important;           /* Deixa a largura ser definida pelo conteúdo */
+    background-color: #FFCD00 !important;
+    color: #121212 !important;
+    font-weight: bold !important;
+    padding: 15px 40px !important;    /* Padding vertical e horizontal */
+    border-radius: 5px !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: uppercase !important;
+}
+
+#mlb2-31332246 .ml-form-embedSubmit button:hover {
+    background-color: #E0A800 !important;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   AJUSTES FINAIS DE CORREÇÃO (FORMULÁRIO E TÍTULO)
+   ========================================================================== */
+
+/* 1. Força o botão de 'loading' do MailerLite a ficar escondido */
+#mlb2-31332246 .ml-form-embedSubmit button.loading {
+    display: none !important;
+}
+
+/* 2. Força a centralização do título na seção do formulário */
+.form-section .section-title {
+    text-align: center !important;
+}
+
+/* Estilos para o widget de post em destaque na sidebar */
+
+.featured-post-title {
+    font-size: 1.3em; /* Tamanho do título do post destacado */
+    font-family: 'Lora', serif;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.featured-post-title a {
+    text-decoration: none;
+    color: #FFFFFF; /* Título em branco para diferenciar dos outros links */
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.featured-post-title a:hover {
+    color: #FFCD00; /* Dourado no hover */
+}
+
+.featured-post-excerpt {
+    font-size: 0.9em;
+    opacity: 0.7;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Estilos da Página de Obrigado
+   ========================================================================== */
+
+.thank-you-icon {
+    font-size: 50px;
+    color: #28a745; /* Um tom de verde para sucesso */
+    margin-bottom: 20px;
+}
+
+.next-step {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid #333; /* Linha para separar */
+}
+
+.next-step p {
+    font-size: 1.1em;
+    opacity: 0.8;
+}
+
+/* Precisamos garantir que o botão secundário apareça aqui */
+.cta-button.secondary {
+    display: inline-block; /* Garante que ele seja visível */
+    background-color: transparent;
+    border: 2px solid #FFCD00;
+    color: #FFCD00;
+    padding: 15px 30px;
+}
+.cta-button.secondary:hover {
+    background-color: #FFCD00;
+    color: #121212;
+}
+
+
+/* Estilos para o menu hambúrguer */
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 2em;
+    color: #FFFFFF;
+}
+
+/* Para telas menores que 768px */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Esconde o menu inicialmente */
+        flex-direction: column; /* Empilha os itens do menu */
+        align-items: center; /* Centraliza os itens */
+        width: 100%;
+        background-color: #121212; /* Fundo escuro */
+        position: fixed; /* Fixa o menu na tela */
+        top: 0; /* Fixa no topo */
+        left: 0; /* Preenche toda a largura */
+        padding: 60px 0; /* Ajuste o padding para dar espaço */
+        z-index: 1000; /* Coloca o menu sobre outros elementos */
+    }
+
+    nav.active ul {
+        display: flex; /* Exibe o menu quando a classe "active" for adicionada */
+    }
+
+    .site-title a {
+        font-size: 1.2em;
+    }
+
+    .mobile-menu {
+        display: block; /* Exibe o ícone do hambúrguer */
+    }
+
+    /* Ajuste o ícone do hambúrguer */
+    .mobile-menu i {
+        font-size: 2em;
+        color: #FFFFFF;
+        margin-right: 20px;
+    }
+
+    /* Melhora a visualização do menu em telas pequenas */
+    nav ul li {
+        margin: 20px 0; /* Aumenta o espaçamento entre os itens */
+    }
+
+    nav ul li a {
+        font-size: 1.5em; /* Ajusta o tamanho da fonte para mais legível */
+        color: #FFFFFF; /* Mantém o texto branco */
+        text-decoration: none; /* Remove sublinhado */
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        color: #FFCD00; /* Muda a cor do texto no hover */
+    }
+}
+
+/* ==========================================================================
+   Ajustes Finais de Responsividade para a Página do Blog
+   ========================================================================== */
+
+/* Este código só será aplicado em telas com largura máxima de 992px (tablets e telemóveis) */
+@media (max-width: 992px) {
+
+    /* Empilha o conteúdo principal e a barra lateral */
+    .blog-layout-container {
+        flex-direction: column;
+    }
+
+    /* 1. Esconde os botões de filtro redundantes no telemóvel */
+    .category-filters {
+        display: none;
+    }
+
+    /* 2. Força os itens da lista de posts a empilharem verticalmente */
+    .blog-post-item {
+        flex-direction: column; /* A mágica que põe a imagem em cima do texto! */
+    }
+
+    /* Bónus: Adiciona um espaço entre a imagem e o texto quando eles são empilhados */
+    .post-item-image {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* ================================================= */
+/* === PÁGINA DE OBRIGADO (VERSÃO CONSOLIDADA) === */
+/* ================================================= */
+
+/* --- Configurações Gerais da Página --- */
+body {
+  background-color: #1a1a1a; /* Fundo principal */
+  color: #ccc;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+/* --- SEÇÃO 1: CONFIRMAÇÃO (Topo) --- */
+.secao-confirmacao {
+  padding: 30px 10px 30px 10px; /* RESPIRO na parte de baixo */
+  background-color: #111; /* Fundo mais escuro para diferenciar */
+  text-align: center;
+}
+.confirmacao-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.secao-confirmacao h1 {
+  color: #FFD700; /* Destaque amarelo */
+  font-size: 2.8em;
+  margin-bottom: 15px;
+}
+.secao-confirmacao p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.icone-sucesso {
+  width: 80px; height: 80px; border-radius: 50%;
+  background-color: #1c1c1c; border: 4px solid #FFD700;
+  display: flex; justify-content: center; align-items: center;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+.check-mark {
+  width: 20px; height: 40px; border: solid #FFD700;
+  border-width: 0 6px 6px 0; transform: rotate(45deg);
+}
+
+/* --- SEÇÃO 2: OFERTA ESPECIAL (A Jornada) --- */
+.secao-oferta-especial {
+  padding: 20px 0; 
+}
+
+/* O Divisor de Brilho (usado entre os blocos) */
+.divisor-brilho {
+  width: 350px;
+  height: 2px;
+  margin: 0 auto; /* Apenas centralizado, o bloco dá o respiro */
+  background: linear-gradient(to right, transparent 0%, #FFD700 50%, transparent 100%);
+  box-shadow: 0 0 15px -5px #FFD700;
+  border-radius: 5px;
+}
+
+/* ============================================ */
+/* === REFINAMENTO OUSADO: VIBRAÇÃO + CALLOUT === */
+/* ============================================ */
+
+/* 1. O TÍTULO "ESPERE!" (O PONTO FOCAL VIBRATÓRIO) */
+.oferta-hook h2.oferta-aviso {
+    font-size: 3.5em; /* GRANDE */
+    font-weight: 700;
+    color: #FFD700; /* Sua cor de destaque */
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px; /* Espaço até o bloco de texto */
+
+    /* A ANIMAÇÃO DE VIBRAÇÃO (SHAKE) */
+    animation: shake-animation 1.5s cubic-bezier(.36,.07,.19,.97) both infinite;
+    transform: translate3d(0, 0, 0); /* Otimização para a animação */
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.oferta-aviso i {
+    font-size: 0.9em;
+    margin-right: 15px;
+    /* Faz o ícone tremer junto com o texto */
+}
+
+/* 2. O BLOCO DE TEXTO (DESTAQUE VISUAL "CALLOUT") */
+.hook-texto-bloco {
+    background-color: rgba(255, 255, 255, 0.03); /* Fundo muito sutil, quase invisível */
+    border-left: 5px solid #FFD700; /* Borda de destaque amarela FORTE */
+    padding: 25px 30px; /* Respiro interno */
+    border-radius: 0 8px 8px 0; /* Cantos arredondados */
+    
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza o bloco */
+    text-align: left; /* Alinha o texto à esquerda para leitura */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* 3. CONTEÚDO DENTRO DO BLOCO DE DESTAQUE */
+.hook-texto-bloco h3 {
+    font-size: 2.0em; /* Título do bloco */
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.hook-texto-bloco p {
+    font-size: 1.2em; 
+    color: #ccc; 
+    line-height: 1.7;
+    margin-bottom: 0; /* Remove margem do parágrafo */
+}
+        
+/* O destaque "kit de primeiros socorros" */
+.hook-texto-bloco p strong { 
+    color: #FFFFFF; 
+    font-weight: 700;
+    background-color: rgba(255, 215, 0, 0.15); 
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+        
+/* 4. A ANIMAÇÃO DE SHAKE (VIBRAÇÃO) */
+/* Uma animação sutil que não cansa os olhos */
+@keyframes shake-animation {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+    40%, 60% { transform: translate3d(3px, 0, 0); }
+}
+
+/* 5. ANIMAÇÕES DE ENTRADA (Fade-in) */
+/* As keyframes @fade-in já existem no seu CSS */
+.anim-fade-in-1 { 
+    opacity: 0; 
+    /* O bloco de texto aparece 0.5s depois do "ESPERE!" */
+    animation: fade-in 0.7s ease-out 0.5s forwards; 
+}
+        
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .oferta-hook h2.oferta-aviso {
+        font-size: 2.5em; /* Ajusta o "ESPERE!" no celular */
+    }
+    .hook-texto-bloco h3 {
+        font-size: 1.5em; /* Ajusta o subtítulo no celular */
+    }
+    .hook-texto-bloco {
+        padding: 20px; /* Menos padding lateral no celular */
+    }
+}
+
+/* 4. Reforço do Destaque no Texto (que já tínhamos) */
+/* Isso garante que o "kit de primeiros socorros" tenha o destaque visual */
+.oferta-hook p strong {
+  color: #FFFFFF; /* Destaque em branco */
+  background-color: rgba(255, 215, 0, 0.1); /* "Marca-texto" amarelo sutil */
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700; /* Garante que está em negrito */
+}
+
+/* --- Estrutura de Blocos (Para forçar a rolagem) --- */
+.oferta-bloco {
+  max-width: 900px; 
+  margin: 0 auto;
+  /* O RESPIRO que você pediu */
+  padding: 40px 10px; 
+  text-align: center;
+}
+
+/* Ajustes finos no respiro */
+.oferta-bloco.oferta-hook { padding-top: 10px; }
+.oferta-bloco.oferta-final-cta { padding-top: 80px; padding-bottom: 80px; }
+
+/* Bloco 1: Hook "ESPERE!" */
+.oferta-hook h2.oferta-aviso {
+  font-size: 4.8em; color: #FFD700; margin-bottom: 20px;
+}
+.oferta-hook p {
+  font-size: 1.3em; color: #ccc; line-height: 1.7;
+}
+.oferta-hook p strong { /* "kit de primeiros socorros" */
+  color: #FFFFFF;
+  background-color: rgba(255, 215, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ============================================ */
+/* === REFINAMENTO BLOCO AGITAÇÃO (COM CARD) === */
+/* ============================================ */
+
+/* O Bloco-pai agora só dá respiro e centraliza o card */
+.oferta-bloco.oferta-agitacao {
+  padding: 80px 20px; /* Respiro vertical entre seções */
+  /* Removemos o text-align: left daqui */
+}
+
+/* O NOVO CARD UNIFICADO */
+.agitacao-card {
+  background-color: #1c1c1c; /* Cor de card padrão */
+  padding: 40px;
+  border-radius: 12px;
+  border-top: 4px solid #FFD700; /* Destaque superior */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  max-width: 900px; /* Mantém a largura de leitura */
+  margin: 0 auto; /* Centraliza o card */
+}
+
+/* Título DENTRO do card */
+.agitacao-card h3 {
+  text-align: center; /* Centraliza o título */
+  font-size: 1.8em;
+  color: #FFFFFF;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Parágrafos DENTRO do card */
+.agitacao-card p {
+  font-size: 1.1em;
+  color: #ccc;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: left; /* Alinha o texto à esquerda para leitura */
+}
+.agitacao-card p strong {
+   color: #FFD700; 
+   font-weight: 700;
+}
+
+/* As caixas de comparação DENTRO do card */
+.agitacao-card .comparativo-caixas {
+  display: flex;
+  gap: 20px;
+  margin: 30px 0; /* Espaçamento antes e depois */
+}
+.caixa-sintoma, 
+.caixa-causa {
+  flex: 1;
+  padding: 25px;
+  border-radius: 8px;
+  background-color: #111;
+  text-align: left;
+}
+.caixa-sintoma h4, 
+.caixa-causa h4 {
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.caixa-sintoma p, 
+.caixa-causa p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* --- Cores (Sintoma vs Causa) --- */
+.caixa-sintoma { border-left: 5px solid #FF6B6B; }
+.caixa-sintoma h4 { color: #FFBABA; }
+.caixa-sintoma strong { color: #FF8A8A; }
+
+.caixa-causa { border-left: 5px solid #58D68D; }
+.caixa-causa h4 { color: #AEEBAF; }
+.caixa-causa strong { color: #58D68D; }
+
+/* A Conclusão (final) DENTRO do card */
+.agitacao-conclusao {
+  border-left: 4px solid #FFD700;
+  background-color: rgba(255, 215, 0, 0.05); /* Fundo sutil de destaque */
+  padding: 20px;
+  margin: 0; /* Remove margem padrão */
+  font-size: 1.2em;
+  color: #FFFFFF;
+  font-style: italic;
+  text-align: center;
+}
+.agitacao-conclusao strong {
+  color: #FFD700;
+}
+
+/* --- Responsividade (para o card e as caixas) --- */
+@media (max-width: 768px) {
+  .agitacao-card {
+    padding: 30px 20px; /* Menos padding no celular */
+  }
+}
+@media (max-width: 600px) {
+  .agitacao-card .comparativo-caixas {
+    flex-direction: column; /* Empilha as caixas */
+  }
+}
+
+/* ============================================ */
+/* === REFINAMENTO BLINDADO: APRESENTAÇÃO (v3 - Estilo Card) === */
+/* ============================================ */
+
+/* Removemos o padding do bloco-pai, o card interno controlará */
+.oferta-bloco.oferta-apresentacao {
+    padding: 40px 20px;
+}
+
+/* O NOVO CARD (Inspirado na sua home page) */
+.apresentacao-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+    
+    background-color: #1c1c1c; /* Fundo do card, como na home */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 40px; /* Espaçamento interno do card */
+    
+    max-width: 1000px; /* Largura do card */
+    margin: 0 auto; /* Centraliza o card */
+}
+
+/* --- Coluna da Imagem (Mantém as regras de flex e 3D) --- */
+.apresentacao-imagem {
+    flex: 1; 
+    max-width: 300px;
+    perspective: 1500px; 
+}
+.apresentacao-card .capa-card-3d { /* Regra mais específica */
+    background-color: #2a2a2a; 
+    padding: 15px; 
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    transform: rotateY(10deg) rotateX(3deg); 
+    transition: transform 0.4s ease;
+}
+.apresentacao-card .capa-card-3d:hover {
+    transform: rotateY(0) rotateX(0) scale(1.05);
+}
+.apresentacao-card .capa-card-3d img {
+    width: 100%; 
+    border-radius: 8px; 
+    display: block;
+}
+
+/* --- Coluna de Texto (Mantém as regras de flex e tipografia) --- */
+.apresentacao-texto {
+    flex: 2; /* Ocupa mais espaço */
+}
+.oferta-eyebrow {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #FFD700; 
+    text-transform: uppercase; 
+    margin-bottom: 10px;
+}
+.oferta-titulo-principal {
+    font-size: 2.5em; 
+    color: #FFFFFF; 
+    line-height: 1.3;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.apresentacao-texto p {
+    font-size: 1.2em; 
+    color: #ccc; 
+    line-height: 1.7;
+    margin-bottom: 0; /* Remove margem extra */
+}
+
+/* --- Responsividade (Ajusta o card) --- */
+@media (max-width: 900px) {
+    .apresentacao-card {
+        flex-direction: column; 
+        text-align: center;
+        padding: 30px;
+    }
+    .apresentacao-imagem {
+        max-width: 250px; 
+        margin-bottom: 30px;
+    }
+    .oferta-titulo-principal {
+        font-size: 2em;
+    }
+}
+
+/* Bloco 4: 3 Pilares */
+.oferta-pilares .pilares-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: left;
+}
+.pilar-card {
+  background-color: #1c1c1c; padding: 30px; border-radius: 12px;
+  border-top: 4px solid #FFD700; 
+}
+.pilar-icon {
+  font-size: 3em; color: #FFD700; margin-bottom: 20px; text-align: center; 
+}
+.pilar-icon i { color: #FFD700; }
+.pilar-card h4 {
+  font-size: 1.4em; color: #FFFFFF; margin-bottom: 15px; text-align: center; 
+}
+.pilar-card p {
+  font-size: 1em; color: #ccc; line-height: 1.7;
+}
+
+/* Bloco 5: Bônus */
+.oferta-bonus h3 {
+  font-size: 1.8em; color: #FFFFFF; margin-bottom: 30px;
+}
+.bonus-card {
+  background-color: rgba(255, 215, 0, 0.05); border: 1px solid #FFD700;
+  border-radius: 12px; padding: 30px; text-align: left;
+  max-width: 750px; margin: 0 auto; 
+}
+.bonus-card h4 {
+  font-size: 1.5em; color: #FFD700; margin-top: 0; margin-bottom: 15px;
+}
+.bonus-card h4 i { margin-right: 10px; }
+.bonus-card p {
+  font-size: 1.1em; color: #ccc; line-height: 1.7; margin-bottom: 0;
+}
+/* ================================================= */
+/* === PÁGINA DE OBRIGADO (VERSÃO NARRATIVA R$27) === */
+/* ================================================= */
+
+/* --- Configurações Gerais da Página --- */
+body.pagina-oferta {
+  background-color: #1a1a1a; /* Fundo principal */
+  color: #ccc;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- SEÇÃO 1: CONFIRMAÇÃO (Topo) --- */
+.secao-confirmacao {
+  padding: 60px 20px 80px 20px; 
+  background-color: #111; 
+  text-align: center;
+}
+.confirmacao-container { max-width: 700px; margin: 0 auto; }
+.secao-confirmacao h1 {
+  color: #FFD700; 
+  font-size: 2.8em;
+  margin-bottom: 15px;
+}
+.secao-confirmacao p {
+  font-size: 1.1em; line-height: 1.7; max-width: 600px; margin: 0 auto;
+}
+.icone-sucesso {
+  width: 80px; height: 80px; border-radius: 50%;
+  background-color: #1c1c1c; border: 4px solid #FFD700;
+  display: flex; justify-content: center; align-items: center;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+.check-mark {
+  width: 20px; height: 40px; border: solid #FFD700;
+  border-width: 0 6px 6px 0; transform: rotate(45deg);
+}
+
+/* --- SEÇÃO 2: OFERTA IRRESISTÍVEL --- */
+.secao-oferta-irresistivel {
+  padding: 40px 20px 80px 20px; /* Respiro geral */
+  text-align: center;
+}
+.divisor-brilho {
+  width: 250px; height: 3px; margin: 0 auto 60px auto;
+  background: linear-gradient(to right, transparent 0%, #FFD700 50%, transparent 100%);
+  box-shadow: 0 0 15px -5px #FFD700;
+  border-radius: 5px;
+}
+.oferta-aviso {
+  font-size: 2.8em; color: #FFD700; margin-bottom: 60px;
+}
+
+/* O NOVO CARD DE OFERTA UNIFICADO */
+.oferta-card-irresistivel {
+  background-color: #1c1c1c;
+  border-top: 5px solid #FFD700; /* Destaque forte no topo */
+  border-radius: 15px;
+  padding: 30px; 
+  max-width: 600px; /* Mais estreito e focado */
+  margin: 0 auto; 
+  box-shadow: 0 15px 45px rgba(0,0,0,0.5);
+  text-align: center; 
+}
+
+/* 1. A Narrativa */
+.oferta-card-titulo {
+  font-size: 2em;
+  color: #FFD700;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.oferta-card-texto {
+  font-size: 1.1em;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+.oferta-card-destaque-negativo {
+  font-size: 1.1em;
+  color: #888;
+  text-decoration: line-through;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* 2. O Preço Revelado */
+.preco-reveal {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 25px;
+  margin: 30px 0;
+}
+.preco-reveal p {
+  font-size: 1.1em;
+  color: #FFFFFF;
+  font-weight: 500;
+  margin: 0 0 15px 0;
+}
+.preco-grande-final {
+  font-size: 4.5em;
+  color: #58D68D; /* Verde brilhante */
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.preco-antigo-riscado {
+  font-size: 1.3em;
+  color: #FF8A8A; /* Vermelho sutil */
+  text-decoration: line-through;
+  display: block;
+}
+.oferta-justificativa {
+  font-size: 0.9em !important;
+  color: #888 !important;
+  font-style: italic;
+  margin-top: 15px;
+  margin-bottom: 0 !important;
+}
+
+/* 3. O Bloco de Ação (Timer + Botão) */
+.action-block {
+  margin-top: 30px;
+  /* Isso une o timer e o botão */
+  border-radius: 10px;
+  overflow: hidden; 
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.oferta-timer-final {
+  background: #333;
+  padding: 12px;
+  font-size: 1.1em;
+  color: #FFFFFF;
+  font-weight: 500;
+  border-bottom: 1px solid #444; /* Linha sutil entre timer e botão */
+}
+.oferta-timer-final i {
+  margin-right: 8px;
+  color: #FFD700;
+}
+.oferta-timer-final span {
+  font-family: monospace;
+  font-weight: 700;
+  color: #FFFFFF;
+  font-size: 1.1em;
+  margin-left: 5px;
+}
+
+.botao-compra-final {
+  display: block;
+  width: 100%;
+  background-image: linear-gradient(to bottom, #FFD700, #FFA800); 
+  color: #111;
+  padding: 18px;
+  font-size: 1.3em; 
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  transition: transform 0.2s ease;
+  animation: pulse-animation 2s infinite; 
+}
+.botao-compra-final span { 
+  display: block; font-size: 0.6em; font-weight: 500;
+  color: #333; margin-top: 3px;
+}
+.botao-compra-final:hover {
+  transform: scale(1.03);
+  animation: none; 
+}
+
+/* 4. Texto de Urgência e Downsell */
+.oferta-urgencia {
+  color: #FFBABA; /* Vermelho claro */
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.link-downsell-final {
+  display: block; color: #888; text-align: center;
+  text-decoration: underline; margin-top: 25px; font-size: 0.9em;
+}
+
+
+/* Animação de Pulso (Mantida) */
+@keyframes pulse-animation {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+  70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+/* Animações de Entrada (da confirmação) */
+@keyframes pop-in {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes fade-in {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.anim-pop-in { animation: pop-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+.anim-fade-in-1 { animation: fade-in 0.5s ease-out 0.2s forwards; opacity: 0; }
+.anim-fade-in-2 { animation: fade-in 0.5s ease-out 0.4s forwards; opacity: 0; }
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 600px) {
+  .oferta-aviso { font-size: 2.2em; }
+  .oferta-card-irresistivel { padding: 20px; }
+  .oferta-card-titulo { font-size: 1.6em; }
+  .preco-grande-final { font-size: 3.5em; }
+  .botao-compra-final { font-size: 1.1em; }
+}
+
+/* === REFINAMENTO DA NARRATIVA (PARA NÃO FICAR SOLTO) === */
+        
+        /* 1. O Bloco da Narrativa (AGORA COM FUNDO E BORDA) */
+        .oferta-narrativa {
+            background-color: rgba(0, 0, 0, 0.2); /* Fundo sutil (como o do timer) */
+            border: 1px solid #444; /* Borda sutil para definir o bloco */
+            border-radius: 10px; /* Cantos arredondados */
+            padding: 30px; /* Respiro interno para o texto */
+            margin-bottom: 30px; /* Mantém a margem de baixo */
+            
+            /* IMPORTANTE: Garante que o texto seja fácil de ler */
+            text-align: left; 
+        }
+
+        /* 2. Ajuste no título (H3) dentro do novo bloco */
+        .oferta-narrativa h3.oferta-card-titulo {
+            text-align: left; /* Remove o 'text-align: center' herdado */
+            margin-top: 0; /* Remove margem do topo dentro do novo card */
+            font-size: 1.8em; /* Mantém o tamanho do título */
+        }
+
+        /* 3. Ajuste nos parágrafos (para garantir alinhamento) */
+        .oferta-narrativa p {
+            text-align: left; /* Garante alinhamento à esquerda */
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        .oferta-card-destaque-negativo {
+            text-align: left; /* Garante alinhamento à esquerda */
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #888;
+            text-decoration: line-through;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        /* 4. Ajuste no bloco de revelação do preço (para centralizar) */
+        .preco-reveal {
+            text-align: center; /* Garante que o conteúdo do preço fique centralizado */
+        }
+/* ============================================ */
+/* === REFINAMENTO VISUAL DO "VALUE STACK" === */
+/* ============================================ */
+
+/* 1. O Bloco da Narrativa (Mantém o estilo) */
+.oferta-narrativa {
+  background-color: rgba(0, 0, 0, 0.2); 
+  border: 1px solid #444; 
+  border-radius: 10px; 
+  padding: 30px; 
+  margin-bottom: 30px; 
+  text-align: left; 
+}
+.oferta-narrativa h3.oferta-card-titulo {
+  text-align: left; 
+  margin-top: 0; 
+  font-size: 1.8em; 
+}
+.oferta-narrativa p {
+  text-align: left; 
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+.oferta-card-destaque-negativo {
+  text-align: left; 
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #888;
+  text-decoration: line-through;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* 2. O NOVO BLOCO "VALUE STACK" (A LISTA DE ITENS) */
+.oferta-itens-incluidos {
+  margin-bottom: 30px;
+  text-align: left; /* Alinha itens à esquerda */
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  padding: 25px 0;
+}
+.oferta-itens-incluidos h4 {
+  font-size: 1.2em;
+  color: #FFD700; /* Destaque amarelo no título */
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.oferta-itens-incluidos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.oferta-itens-incluidos li {
+  color: #ccc;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  display: flex; /* Para alinhar checkmark, texto e valor */
+  align-items: center;
+  justify-content: space-between; /* Empurra o valor para a direita */
+}
+/* Ícone de Checkmark Verde */
+.check-icon {
+  color: #28a745; /* Verde para o checkmark */
+  font-size: 1.2em;
+  margin-right: 15px;
+  /* Garante que o ícone do Font Awesome pegue a cor */
+}
+.check-icon i { 
+    color: #28a745; 
+}
+/* Valor do item (à direita) */
+.item-valor {
+  font-size: 0.9em;
+  color: #888;
+  white-space: nowrap; /* Evita quebra de linha no valor */
+  margin-left: 15px;
+}
+
+/* 3. Bloco de Preço (Mantém o estilo) */
+.preco-reveal {
+  text-align: center; 
+}
+/* (O resto do CSS para .preco-grande-final, .action-block, etc. 
+   que está no seu arquivo / no meu último código, permanece o mesmo) */
+
+
+/* --- ESTILOS DO RODAPÉ --- */
+footer {
+    background-color: #121212; 
+    border-top: 1px solid #333; 
+    color: rgba(255, 255, 255, 0.7); 
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px; /* Adiciona respiro antes do rodapé */
+}
+.social-links { margin-bottom: 20px; }
+.social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin: 0 15px; 
+    transition: color 0.3s ease;
+}
+.social-links a:hover { color: #FFD700; }
+.copyright { font-size: 0.9em; opacity: 0.6; margin: 0; }
+/* --- ESTILOS DO RODAPÉ (JÁ QUE ESTÁ NO HTML) --- */
+footer {
+    background-color: #121212; 
+    border-top: 1px solid #333; 
+    color: rgba(255, 255, 255, 0.7); 
+    text-align: center;
+    padding: 40px 20px;
+}
+.social-links { margin-bottom: 20px; }
+.social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin: 0 15px; 
+    transition: color 0.3s ease;
+}
+.social-links a:hover { color: #FFD700; }
+.copyright { font-size: 0.9em; opacity: 0.6; margin: 0; }
+
+/* ======================================= */
+/* --- Estilização do Artigo do Blog --- */
+/* ======================================= */
+
+/* 1. O Contêiner Principal (Limita a largura da leitura) */
+.post-full {
+  max-width: 900px;  /* A REGRA DE OURO! Ideal para leitura. */
+  margin: 60px auto; /* Centraliza o artigo na página e dá espaço */
+  padding: 0 20px;   /* Um respiro nas laterais em telas pequenas */
+}
+
+/* 2. O Título Principal */
+.post-header {
+  margin-bottom: 30px;
+}
+
+.page-title {
+  font-size: 2.8rem; /* Bem grande e impactante */
+  line-height: 1.2;
+  color: #FFD700;   
+  margin: 0;
+}
+
+/* 3. O Corpo do Texto (Configuração para Leitura Agradável) */
+.post-body {
+  color: #e0e0e0;      /* Um branco "suave", cansa menos que #fff */
+  font-size: 1.125rem;  /* 18px é um ótimo tamanho para ler */
+  line-height: 1.7;     /* Espaçamento generoso entre linhas */
+}
+
+/* 4. Espaçamento Padrão entre Elementos */
+.post-body p,
+.post-body ul,
+.post-body h2,
+.post-body blockquote {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+/* 5. Subtítulos (para Hierarquia Visual) */
+.post-body h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  color: #FFD700; /* Usando aquele amarelo do seu botão! */
+}
+
+/* 6. A Imagem Flutuante */
+.image-float-left {
+  float: left;
+  margin-right: 25px;  /* Espaço para o texto não colar na imagem */
+  margin-bottom: 15px; /* Espaço abaixo da imagem */
+  max-width: 45%;    /* Ocupa 45% da largura do contêiner */
+  border-radius: 8px; /* Cantos arredondados, fica mais moderno */
+}
+
+/* 7. Listas (Pontos-Chave) */
+.post-body ul {
+  padding-left: 30px; /* Alinha os 'bullets' para dentro */
+}
+
+.post-body li {
+  margin-bottom: 15px; /* Espaço entre cada item da lista */
+}
+
+/* 8. Citação em Bloco (Para dar Destaque) */
+.post-body blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 25px;
+  background-color: #2a2a2a; /* Um tom de cinza escuro de fundo */
+  border-left: 5px solid #FFD700; /* Destaque com sua cor amarela */
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.post-body blockquote strong {
+   color: #ffffff; /* Dá mais ênfase ao 'strong' dentro do quote */
+}
+
+/* 9. Metadados (Informação sutil no rodapé) */
+.post-meta {
+  font-size: 0.9rem;
+  color: #999999; /* Cinza claro, sem chamar atenção */
+  margin-top: 40px;
+}
+
+/* 10. Link "Saiba Mais" (CTA Forte) */
+.read-more-link {
+  display: inline-block; /* Para poder aplicar padding */
+  margin-top: 10px;
+  padding: 12px 24px;
+  background-color: #FFD700; /* Sua cor de CTA! */
+  color: #111111; /* Texto escuro para contraste no botão */
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px; /* Botão "pílula", bem moderno */
+  transition: transform 0.2s ease;
+}
+
+.read-more-link:hover {
+  transform: scale(1.05); /* Efeito sutil ao passar o mouse */
+}
+
+/* BÔNUS: Limpar a flutuação da imagem 
+  Isso garante que nada depois do corpo do texto 
+  tente ficar ao lado da imagem.
+*/
+.post-body::after {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kinsta.com/pt/blog/o-seu-sitemap-parece-ser-uma-pagina-em-html/

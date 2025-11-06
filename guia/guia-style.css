@@ -1,0 +1,1873 @@
+/* Fundo da página */
+body {
+    background-color: #000000;    /* Define a cor de fundo de toda a página como preto. */
+    margin: 0;                    /* Remove a margem padrão do navegador. */
+    font-family: "Arial", sans-serif; /* Define uma fonte padrão para todo o texto que não tenha uma específica. */
+}
+
+
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO HERO DE IMPACTO =========== */
+/* ==================================================== */
+
+.hero-section {
+  position: relative;
+  height: 100vh; /* Ocupa a altura inteira da tela */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden; /* Esconde o que "vazar" da seção */
+
+  /* A MÁGICA DO FUNDO: Imagem com um gradiente por cima para escurecer as bordas */
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%),
+    linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%),
+    url('imagens/foto-hero2.jpg');
+  background-size: cover;
+  background-position: center top; /* Foca no topo da sua imagem */
+}
+
+.hero-content {
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 2; /* Garante que o texto fique na frente das linhas */
+  max-width: 800px;
+}
+
+.hero-headline {
+  font-size: 3.8em; /* GRANDE e impactante */
+  color: #FFD700;
+  font-weight: bold;
+  line-height: 1.2;
+  text-shadow: 0 3px 20px rgba(0,0,0,0.6);
+  margin: 0 0 20px 0;
+}
+
+.hero-subheadline {
+  font-size: 1.3em;
+  color: #e0e0e0;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #111;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 20px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 30px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hero-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 40px rgba(255, 215, 0, 0.5);
+}
+
+/* Linhas de Luz Animadas (O "UAU") */
+.hero-glow-line {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  background: linear-gradient(to bottom, rgba(255, 215, 0, 0), rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0));
+  transform: skewX(-20deg);
+  animation: sweep 8s linear infinite;
+  z-index: 1;
+}
+
+.line-1 {
+  left: 5%;
+}
+
+.line-2 {
+  right: 5%;
+  animation-delay: -4s; /* Começa na metade da animação */
+}
+
+/* Animação das linhas */
+@keyframes sweep {
+  0% { transform: skewX(-20deg) translateY(-150%); }
+  100% { transform: skewX(-20deg) translateY(150%); }
+}
+
+/* Ajustes para Celular */
+@media (max-width: 768px) {
+  .hero-headline {
+    font-size: 2.5em;
+  }
+  .hero-subheadline {
+    font-size: 1.1em;
+  }
+}
+
+/* ==================================================== */
+/* =========== ESTILOS 'CAMPO DE BATALHA' (VERSÃO 2.0) =========== */
+/* ==================================================== */
+
+.secao-batalha-v2 {
+  padding: 80px 20px;
+}
+
+.batalha-card-v2 {
+  display: flex;
+  max-width: 1200px;
+  min-height: 600px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  background-color: #1c1c1c; /* Cor de fundo para a parte do conteúdo */
+}
+
+/* Metade da Esquerda (Conteúdo) */
+.batalha-conteudo-v2 {
+  flex-basis: 55%;
+  padding: 50px;
+}
+
+.batalha-conteudo-v2 h2 {
+  font-size: 2.8em;
+  color: #FFD700;
+  line-height: 1.2;
+}
+
+.subtitulo-batalha-v2 {
+  font-size: 1.2em;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* Metade da Direita (Imagem) */
+.batalha-imagem-v2 {
+  flex-basis: 45%;
+  background-image: url('imagens/foto-bloco-2.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(60%) contrast(110%);
+}
+
+/* Estilos do Acordeão (com novas classes) */
+.accordion-item-v2 {
+  border-bottom: 1px solid #444;
+}
+.accordion-item-v2:first-child {
+  border-top: 1px solid #444;
+}
+
+.accordion-header-v2 {
+  padding: 20px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header-v2:hover {
+  background-color: rgba(255, 215, 0, 0.05);
+}
+
+.accordion-header-v2.ativo {
+  color: #FFD700;
+}
+
+.accordion-icon-v2 {
+  font-size: 1.1em;
+  margin-right: 15px;
+  color: #e44d26;
+  transition: transform 0.4s ease;
+}
+
+.accordion-header-v2.ativo .accordion-icon-v2 {
+  color: #FFD700;
+  transform: rotate(45deg);
+}
+
+.accordion-body-v2 {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+}
+
+.accordion-body-v2 p {
+  padding: 0 10px 20px 38px;
+  font-size: 1.05em;
+  line-height: 1.8;
+  color: #ccc;
+  margin: 0;
+}
+
+/* Ajustes para Celular */
+@media (max-width: 950px) {
+  .batalha-card-v2 {
+    flex-direction: column-reverse; /* Conteúdo vai para cima */
+  }
+  .batalha-imagem-v2 {
+    min-height: 300px;
+  }
+  .batalha-conteudo-v2 {
+    padding: 40px 25px;
+  }
+}
+
+/* ==================================================== */
+/* =========== ESTILOS CORRIGIDOS DA SEÇÃO 'POR QUE FRACASSOU' =========== */
+/* ==================================================== */
+
+.secao-fracasso {
+  padding: 80px 20px;
+}
+
+/* O Card Principal */
+.fracasso-card {
+  display: flex;
+  position: relative;
+  max-width: 1100px;
+  min-height: 550px; /* Um pouco mais de altura */
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Título Sobreposto (sem alterações, mas mantido para integridade) */
+.fracasso-card h2 {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  text-align: center;
+  font-size: 2.8em;
+  color: #FFD700;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  z-index: 2;
+}
+
+/* ======================================================= */
+/* =========== AQUI ESTÁ A GRANDE MUDANÇA =========== */
+/* ======================================================= */
+
+/* Metade da Imagem (Esquerda) */
+.fracasso-imagem {
+  flex-basis: 50%; /* Define que a largura é 50% */
+  flex-shrink: 0;
+  /* A MÁGICA ACONTECE AQUI */
+  background-image: url('imagens/foto-bloco-3.jpg');
+  background-size: cover; /* Cobre o espaço sem distorcer */
+  background-position: center; /* Centraliza a imagem */
+  filter: grayscale(80%);
+}
+
+/* Metade do Conteúdo (Direita) */
+.fracasso-conteudo {
+  flex-basis: 50%; /* Define que a largura é 50% */
+  background-color: #1c1c1c;
+  padding: 140px 50px 50px 50px; /* Padding ajustado */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* O resto do estilo do texto continua igual */
+.fracasso-conteudo h4 {
+  font-size: 1.3em;
+  color: #fff;
+  padding-top: 20px;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.pivot-bloco {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-left: 3px solid #FFD700;
+}
+
+.pivot-bloco p {
+  font-size: 1.1em;
+  color: #ccc;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.frase-final {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #FFD700;
+  margin-top: 20px;
+}
+
+/* Ajustes para Celular (também corrigido) */
+@media (max-width: 900px) {
+  .fracasso-card {
+    flex-direction: column;
+  }
+  .fracasso-card h2 {
+    position: relative; /* Volta ao fluxo normal */
+    transform: none;
+    left: auto;
+    top: auto;
+    width: 100%;
+    order: 1; /* Título vem primeiro */
+    padding: 40px 20px 0;
+    font-size: 2.2em;
+    background-color: #1c1c1c;
+  }
+  .fracasso-imagem {
+    order: 2; /* Imagem vem em segundo */
+    min-height: 250px;
+  }
+  .fracasso-conteudo {
+    order: 3; /* Conteúdo vem por último */
+    padding: 30px;
+  }
+}
+
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO GUIA DE SOBREVIVÊNCIA =========== */
+/* ==================================================== */
+
+.secao-guia {
+  padding: 120px 20px;
+}
+
+/* O Card Principal */
+.guia-card {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 1050px;
+  margin: 0 auto;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  padding: 50px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Conteúdo de Texto (Esquerda) */
+.guia-conteudo {
+  flex-grow: 1;
+  padding-right: 40px; /* Espaço para a imagem não colar no texto */
+}
+
+.guia-titulo h2 {
+  font-size: 2.8em;
+  color: #FFD700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.introducao-guia, .conclusao-guia {
+  font-size: 1.1em;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+.conclusao-guia {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+/* Lista de Features */
+.guia-features {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.feature-icone {
+  font-size: 1.5em;
+  color: #FFD700;
+  margin-right: 15px;
+  transform: rotate(10deg); /* Um toque de estilo no ícone */
+}
+
+.feature-texto h4 {
+  font-size: 1.3em;
+  color: #fff;
+  margin: 0 0 5px 0;
+}
+
+.feature-texto p {
+  font-size: 1em;
+  color: #ccc;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Wrapper da Imagem (Direita) */
+.guia-imagem-wrapper {
+  flex-shrink: 0;
+  /* O efeito de sobreposição para a direita */
+  margin-right: -120px;
+}
+
+.guia-imagem-wrapper img {
+  width: 450px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+
+/* Ajustes Essenciais para Celular */
+@media (max-width: 950px) {
+  .secao-guia {
+    padding: 80px 20px;
+  }
+  .guia-card {
+    /* A imagem vai para cima, o texto para baixo */
+    flex-direction: column-reverse; 
+    padding: 20px;
+  }
+  .guia-imagem-wrapper {
+    width: 90%;
+    margin-right: 0;
+    margin-bottom: -80px; /* Mantém a sobreposição vertical */
+    position: relative;
+    z-index: 1; /* Garante que a imagem fique por cima */
+  }
+  .guia-imagem-wrapper img {
+    width: 100%;
+  }
+  .guia-conteudo {
+    padding-right: 0;
+    padding-top: 100px; /* Espaço para a imagem não cobrir o título */
+    text-align: center;
+  }
+  .feature-item {
+    text-align: left;
+  }
+}
+
+
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO BÔNUS (VERSÃO 2.0) =========== */
+/* ==================================================== */
+
+.secao-bonus-v2 {
+  padding: 120px 20px; /* Mais padding para acomodar a imagem "vazando" */
+}
+
+/* O Card Principal */
+.bonus-card-v2 {
+  display: flex; /* A mágica do layout lado a lado */
+  align-items: center; /* Alinha verticalmente a imagem e o texto */
+  position: relative;
+  max-width: 1050px; /* Um pouco mais largo para o novo layout */
+  margin: 0 auto;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Wrapper da Imagem */
+.bonus-imagem-wrapper-v2 {
+  flex-shrink: 0;
+  /* Puxa a imagem para fora do card, criando a sobreposição */
+  margin-left: -100px;
+  margin-right: 40px; 
+}
+
+.bonus-imagem-wrapper-v2 img {
+  width: 400px; /* Um pouco maior para mais impacto */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* Conteúdo de Texto à Direita */
+.bonus-conteudo-v2 {
+  flex-grow: 1; /* Faz o conteúdo ocupar o resto do espaço */
+}
+
+.bonus-titulo-v2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.bonus-titulo-v2 h2 {
+  font-size: 2.2em;
+  color: #FFD700;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.bonus-conteudo-v2 > p { /* O parágrafo de introdução */
+  text-align: center;
+  color: #ccc;
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* Os Passos P.E.C. */
+.pec-steps-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.step-card-v2 {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.step-card-v2:hover {
+  border-color: #FFD700;
+  transform: translateX(5px);
+}
+
+.step-letra-v2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #FFD700;
+  margin-right: 20px;
+}
+
+.step-texto-v2 h4 {
+  font-size: 1.2em;
+  color: #fff;
+  margin: 0 0 5px 0;
+}
+
+.step-texto-v2 p {
+  font-size: 1em;
+  color: #ccc;
+  margin: 0;
+}
+
+
+/* Ajustes Essenciais para Celular */
+@media (max-width: 950px) {
+  .secao-bonus-v2 {
+    padding: 80px 20px;
+  }
+  .bonus-card-v2 {
+    flex-direction: column; /* Imagem fica em cima do texto */
+    padding: 20px;
+  }
+  .bonus-imagem-wrapper-v2 {
+    width: 80%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: -80px; /* Mantém a sobreposição vertical */
+    margin-bottom: 30px;
+  }
+  .bonus-imagem-wrapper-v2 img {
+    width: 100%;
+  }
+}
+
+
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO DE APRESENTAÇÃO =========== */
+/* ==================================================== */
+
+.secao-apresentacao {
+  padding: 80px 20px;
+  position: relative;
+}
+
+.titulo-apresentacao {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.titulo-apresentacao h2 {
+  font-size: 2.5em;
+  color: #FFD700;
+  margin: 0;
+}
+
+.separador-titulo { /* Uma linha sutil abaixo do título */
+  border: none;
+  height: 2px;
+  width: 80px;
+  margin: 15px auto 0;
+  background-color: #555;
+}
+
+/* O Card Principal */
+.bio-card {
+  display: flex;
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+  background-color: #1c1c1c; /* Cor do card, um pouco mais clara que o fundo */
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* A Imagem */
+.bio-imagem-wrapper {
+  flex-shrink: 0; /* Impede que a imagem encolha */
+  margin-left: -50px; /* Puxa a imagem para fora do card à esquerda */
+  margin-top: -40px; /* Puxa a imagem para cima */
+  margin-bottom: -40px; /* Permite que a imagem "vaze" para baixo */
+}
+
+.bio-imagem-wrapper img {
+  width: 320px; /* Tamanho da imagem */
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 4px solid #2a2a2a;
+}
+
+/* O Conteúdo de Texto */
+.bio-conteudo {
+  padding: 40px;
+  padding-left: 20px; /* Menos padding à esquerda por causa da imagem */
+}
+
+.bio-conteudo h3 {
+  font-size: 2.8em;
+  color: #FFD700;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.bio-conteudo p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #cccccc;
+}
+
+/* O Bloco de Citação de Destaque */
+.pull-quote {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #FFD700;
+  border-radius: 0 8px 8px 0;
+}
+
+.pull-quote p {
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Ajustes para Celular (essencial para este layout) */
+@media (max-width: 850px) {
+  .bio-card {
+    flex-direction: column; /* Coloca a imagem em cima do texto */
+    align-items: center;
+    text-align: center;
+  }
+  .bio-imagem-wrapper {
+    margin: -60px 0 30px 0; /* Ajusta a posição da imagem */
+    width: 80%;
+  }
+  .bio-imagem-wrapper img {
+    width: 100%;
+  }
+  .bio-conteudo {
+    padding: 10px 30px 30px;
+  }
+  .pull-quote {
+    text-align: left;
+  }
+}
+
+  /* ==================================================== */
+  /* =========== ESTILOS DA SEÇÃO DE DEPOIMENTOS =========== */
+/* --- PASSO 2: Aplique o fundo e espaçamento à seção correta --- */
+.depoimentos-secao {
+  /* NOVO: O fundo gradiente que queríamos vai aqui */
+  background-color: #121212; /* Cor de fallback caso o gradiente não carregue */
+  background-image: radial-gradient(circle at 50% 50%, #292929 0%, #121212 70%);
+
+  /* NOVO: Espaçamento interno para a seção "respirar" e não colar no resto do site */
+  padding: 80px 20px; 
+
+  /* Mantemos a centralização do título que já tínhamos */
+  text-align: center;
+}
+
+  .depoimentos-secao h2 {
+    font-size: 2.5em; /* Tamanho do título "Resultados que Transformam" */
+    margin-bottom: 40px; /* Espaço abaixo do título */
+    color: #FDB813;
+  }
+
+  .carrossel-container {
+    position: relative; /* Essencial para posicionar os botões de navegação */
+    max-width: 800px; /* Largura máxima do nosso carrossel */
+    margin: 0 auto; /* Centraliza o carrossel na página */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Esconde todos os slides por padrão */
+  .slide {
+    display: none;
+    width: 100%;
+  }
+
+  /* Mostra apenas o slide que tiver a classe "ativo" */
+  .slide.ativo {
+    display: block;
+  }
+
+
+  /* ==================================================== */
+  /* =========== O CARTÃO DE DEPOIMENTO =========== */
+  /* ==================================================== */
+
+  .cartao-depoimento {
+    background-color: #ffffff; /* Fundo branco do cartão */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); /* Sombra suave para dar profundidade */
+    padding: 40px; /* Espaço interno do cartão */
+    text-align: left; /* Alinha o texto à esquerda dentro do cartão */
+    margin: 0 20px; /* Um pequeno espaço caso os botões fiquem muito próximos */
+  }
+
+  /* Título do depoimento */
+  .conteudo-resumido h3 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #111;
+  }
+  
+  /* Citação em destaque */
+.citacao {
+  font-size: 1.2em; /* MUDANÇA: Aumentando um pouco o tamanho da fonte */
+  font-style: italic;
+  line-height: 1.6;
+  color: #555;
+  border-left: 4px solid #007bff; 
+  padding-left: 20px; 
+  margin-bottom: 25px;
+}
+  .autor {
+    font-weight: bold;
+    color: #333;
+  }
+
+  /* Botão "Ler a história completa" */
+  .btn-expandir {
+    background-color: #007bff; /* Cor principal (azul) */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer; /* Muda o cursor para uma "mãozinha" */
+    margin-top: 20px;
+    transition: background-color 0.3s ease; /* Animação suave na cor */
+  }
+
+  .btn-expandir:hover {
+    background-color: #0056b3; /* Cor um pouco mais escura ao passar o mouse */
+  }
+
+  /* O CONTEÚDO COMPLETO - ESCONDIDO POR PADRÃO */
+  .conteudo-completo {  
+  max-height: 0; /* Começa com altura zero */
+  overflow: hidden; /* Esconde o conteúdo que transborda */
+  transition: max-height 0.7s ease-in-out; /* Animação suave de altura */
+   /* O resto do seu código aqui (margin-top, border-top, etc) continua igual */
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}
+
+  .conteudo-completo h4 {
+    font-size: 1.3em;
+    color: #007bff; /* Deixa os subtítulos em azul */
+  }
+
+  .conteudo-completo p {
+    line-height: 1.7; /* Aumenta o espaçamento entre linhas para facilitar a leitura */
+    color: #444;
+  }
+
+  .conteudo-completo.expandido {
+  max-height: 1500px; /* Uma altura grande o suficiente para caber todo o texto */
+}
+  
+  /* BOTÕES DE NAVEGAÇÃO DO CARROSSEL */
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 50%; /* Deixa os botões redondos */
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-btn:hover {
+    background-color: white;
+    border-color: #007bff;
+    color: #007bff;
+  }
+  
+  .prev-btn {
+    left: -25px; /* Posição do botão esquerdo */
+  }
+  
+  .next-btn {
+    right: -25px; /* Posição do botão direito */
+  }
+
+/* ==================================================== */
+/* =========== ELEMENTO GRÁFICO (ASPAS) =========== */
+/* ==================================================== */
+
+.cartao-depoimento {
+  /* ... (suas outras propriedades como background-color, etc, continuam aqui) ... */
+  position: relative; /* NOVO: Essencial para o posicionamento das aspas */
+  overflow: hidden; /* NOVO: Garante que as aspas não "vazem" para fora do cartão */
+}
+
+/* Criando o elemento gráfico das aspas */
+.cartao-depoimento::before {
+  content: "“"; /* O caractere da aspa */
+  position: absolute;
+  top: -20px;
+  left: 15px;
+  font-size: 15em; /* Tamanho gigante */
+  font-family: "Times New Roman", Times, serif; /* Uma fonte com aspas bonitas */
+  color: #f0f2f5; /* Uma cor bem clara, quase invisível */
+  z-index: 0; /* Manda as aspas para trás do texto */
+}
+
+/* Precisamos garantir que o conteúdo fique na frente das aspas */
+.conteudo-resumido, .conteudo-completo {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==================================================== */
+/* =========== ESTILOS DEPOIMENTOS (VERSÃO 2.0) =========== */
+/* ==================================================== */
+
+.secao-depoimentos-v2 {
+  padding: 80px 20px;
+  background-color: #000;
+}
+
+.depoimentos-titulo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.depoimentos-titulo h2 {
+  font-size: 2.5em;
+  color: #FFD700;
+}
+
+.depoimentos-carrossel-container {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slides-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide-depoimento {
+  display: none;
+  animation: fadeEffect 1s;
+}
+
+.slide-depoimento.ativo {
+  display: block;
+}
+
+@keyframes fadeEffect {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* O Card do Depoimento */
+.testimonial-card {
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  padding: 50px 60px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+/* A Aspa Gigante de Fundo */
+.testimonial-card::before {
+  content: "“";
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 16em;
+  font-family: "Times New Roman", Times, serif;
+  color: rgba(255, 255, 255, 0.04);
+  z-index: 1;
+}
+
+/* Conteúdo do Card */
+.quote-headline, .quote-body, .author-info {
+  position: relative;
+  z-index: 2; /* Garante que o texto fique na frente da aspa */
+}
+
+.quote-headline {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #FFD700;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.quote-body {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+/* Informações do Autor */
+.author-info {
+  display: flex;
+  align-items: center;
+  padding-top: 25px;
+  border-top: 1px solid #444;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-weight: bold;
+  color: #fff;
+  display: block;
+}
+
+.author-meta {
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+/* Navegação */
+.nav-btn-depoimento {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #555;
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+.nav-btn-depoimento:hover {
+  background-color: #FFD700;
+  color: #000;
+  border-color: #FFD700;
+}
+.prev { left: -60px; }
+.next { right: -60px; }
+
+/* Pontos de Navegação */
+.carousel-dots {
+  text-align: center;
+  padding-top: 30px;
+}
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #444;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.dot.ativo {
+  background-color: #FFD700;
+}
+
+/* Ajustes para Celular */
+@media (max-width: 1024px) {
+  .nav-btn-depoimento {
+    top: auto;
+    bottom: -60px; /* Move os botões para baixo do card */
+    transform: none;
+  }
+  .prev { left: 35%; }
+  .next { right: 35%; }
+  .secao-depoimentos-v2 { padding-bottom: 120px; }
+}
+
+@media (max-width: 768px) {
+  .testimonial-card { padding: 40px; }
+  .quote-headline { font-size: 1.5em; }
+}
+
+
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO DE DECISÃO =========== */
+/* ==================================================== */
+
+.secao-decisao {
+  /* Espaçamento para a seção "respirar", separando-a do carrossel */
+  padding: 80px 20px;
+  background-color: #000; /* Garante que o fundo seja o preto padrão do seu site */
+}
+
+.container-decisao {
+  max-width: 1100px; /* Define uma largura máxima para o conteúdo */
+  margin: 0 auto; /* Centraliza o container na página */
+  background-color: #1a1a1a; /* Um cinza bem escuro, para se destacar do fundo preto */
+  border-radius: 15px; /* Bordas arredondadas */
+  padding: 50px;
+  /* Uma borda superior com a cor de destaque para chamar a atenção */
+  border-top: 4px solid #FFD700; 
+}
+
+/* O container das duas colunas */
+.layout-duas-colunas {
+  display: flex; /* A mágica do layout em colunas! */
+  justify-content: space-between; /* Coloca um espaço entre as colunas */
+  gap: 50px; /* Um espaço garantido entre elas */
+  margin-bottom: 50px; /* Separa as colunas da frase de impacto final */
+}
+
+/* Estilo para ambas as colunas */
+.coluna-narrativa,
+.coluna-beneficios {
+  flex: 1; /* Faz com que cada coluna ocupe metade do espaço disponível */
+}
+
+.titulo-secao-decisao {
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 50px; /* Cria um espaço entre o título e as duas colunas */
+}
+
+.titulo-secao-decisao h2 {
+  font-size: 2.5em; /* Tamanho grande para impacto */
+  color: #FFD700; /* A cor de destaque que estamos usando */
+  margin-top: 0; /* Remove a margem padrão para melhor controle */
+  margin-bottom: 0; /* Remove a margem padrão para melhor controle */
+}
+
+/* Títulos dentro das colunas */
+.coluna-narrativa h3,
+.coluna-beneficios h4 {
+  font-size: 1.5em;
+  color: #ffffff;
+  margin-top: 0;
+}
+
+.coluna-narrativa p,
+.coluna-beneficios p {
+  line-height: 1.7;
+  color: #cccccc; /* Um cinza um pouco mais claro para o texto */
+}
+
+/* Lista de benefícios */
+.lista-beneficios {
+  list-style-type: none; /* Remove as bolinhas padrão da lista */
+  padding-left: 0;
+}
+
+.lista-beneficios li {
+  display: flex; /* Alinha o checkmark e o texto */
+  align-items: flex-start;
+  font-size: 1.1em;
+  margin-bottom: 20px; /* Espaço entre os itens da lista */
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+.checkmark {
+  color: #28a745; /* Verde para o checkmark */
+  font-size: 1.3em;
+  margin-right: 15px; /* Espaço entre o checkmark e o texto */
+  font-weight: bold;
+}
+
+/* A frase de impacto final */
+.frase-impacto {
+  text-align: center;
+  border-top: 1px solid #444; /* Linha sutil para separar */
+  padding-top: 40px;
+}
+
+.frase-impacto h2 {
+  font-size: 2.8em;
+  color: #FFD700; /* Cor de destaque, igual ao título da outra seção */
+  margin-bottom: 15px;
+}
+
+.frase-impacto .frase-final {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.botao-decisao .cta-button {
+    display: inline-block;        /* Permite definir padding, etc. */
+    background: linear-gradient(135deg, #FDB813, #ffb400); /* Fundo em gradiente dourado. */
+    color: #000;                  /* Cor do texto: preto. */
+    font-weight: bold;            /* Texto em negrito. */
+    font-size: 20px;              /* Tamanho da fonte. */
+    padding: 16px 28px;           /* Espaçamento interno. */
+    border-radius: 50px;          /* Deixa o botão em formato de pílula. */
+    text-decoration: none;        /* Remove o sublinhado. */
+    box-shadow: 0 4px 12px rgba(253, 184, 19, 0.5); /* Sombra com cor. */
+    transition: all 0.3s ease;    /* Transição suave. */
+    text-align: center; /* ESTA É A LINHA QUE CENTRALIZA TUDO! */
+    border-top: 1px solid #444;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Efeito hover */
+.botao-decisao .cta-button:hover {
+    background: linear-gradient(135deg, #ffb400, #ff9500); /* Muda o gradiente no hover. */
+    transform: translateY(-2px);  /* Move o botão 2px para cima. */
+    box-shadow: 0 6px 16px rgba(255, 149, 0, 0.6); /* Aumenta a sombra. */
+}
+
+/* ==================================================== */
+/* =========== AJUSTE PARA CELULARES (RESPONSIVIDADE) =========== */
+/* ==================================================== */
+
+@media (max-width: 768px) {
+  .layout-duas-colunas {
+    flex-direction: column; /* Faz as colunas ficarem uma em cima da outra */
+  }
+
+  .container-decisao {
+    padding: 30px; /* Diminui o espaçamento interno em telas menores */
+  }
+  
+  .frase-impacto h2 {
+    font-size: 2em; /* Diminui um pouco a fonte para caber melhor */
+  }
+}
+
+/* Ajuste para telas menores (celulares) */
+@media (max-width: 768px) {
+  .titulo-secao-decisao h2 {
+    font-size: 2em; /* Diminui um pouco a fonte para não quebrar a linha */
+  }
+}
+/* ==================================================== */
+/* =========== ESTILOS DA SEÇÃO DO OBSTÁCULO FINAL =========== */
+/* ==================================================== */
+
+.secao-obstaculo {
+  padding: 5px 20px;
+  text-align: center; /* Centraliza todo o conteúdo */
+}
+
+.container-obstaculo {
+  max-width: 1100px; /* Um container mais estreito para forçar a leitura focada */
+  margin: 0 auto; /* Centraliza na página */
+}
+
+.secao-obstaculo h2 {
+  font-size: 2.5em; /* Grande e impactante */
+  color: #FFD700; /* Cor de destaque */
+  text-transform: uppercase; /* TUDO EM MAIÚSCULAS */
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+.secao-obstaculo p {
+  font-size: 1.2em;
+  line-height: 1.8;
+  color: #cccccc;
+  margin-bottom: 25px;
+}
+
+/* O bloco que representa a "voz interna" */
+.bloco-sussurro {
+  margin: 40px auto;
+  padding: 20px 30px;
+  border-left: 4px solid #555; /* Uma borda sutil para destacar */
+  background-color: rgba(255, 255, 255, 0.03); /* Fundo quase imperceptível */
+  text-align: left; /* Alinha o texto da citação à esquerda */
+}
+
+.bloco-sussurro p {
+  font-size: 1.1em;
+  color: #bbbbbb;
+  font-style: italic; /* O itálico para a voz interna */
+}
+
+/* A frase final de impacto */
+.frase-verdade {
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #FFD700;
+}
+
+/* Linhas divisórias estilizadas */
+.separador-estilizado {
+  border: none;
+  height: 2px;
+  width: 450px;
+  margin: 50px auto; /* Centraliza e dá espaçamento */
+  background-image: linear-gradient(to right, rgba(255, 215, 0, 0), #FFD700, rgba(255, 215, 0, 0));
+}
+
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+  .secao-obstaculo h2 {
+    font-size: 1.8em;
+  }
+  .secao-obstaculo p {
+    font-size: 1.1em;
+  }
+}
+
+
+/* Responsividade para esta seção */
+@media (max-width: 768px) {
+    .bio-container {
+        flex-direction: column;   /* Empilha a foto e o texto. */
+        text-align: center;       /* Centraliza os itens. */
+    }
+
+    .author-text {
+        text-align: justify;      /* Justifica o texto do parágrafo para um alinhamento mais limpo em bloco. */
+    }
+}
+
+/* ==========================================================================
+   Bloco principal (card da oferta)
+   ========================================================================== */
+
+/* ========================================= */
+/* --- CSS Bloco de Oferta V4 (Gráfico) --- */
+/* ========================================= */
+
+#oferta {
+  padding: 40px 20px;
+  max-width: 600px; /* Um bom tamanho para o card */
+  margin: 50px auto;
+  font-family: 'Montserrat', sans-serif; /* Garante a fonte certa */
+}
+
+/* O CARD PRINCIPAL */
+.oferta-card-v4 {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Chave para os cantos arredondados */
+  text-align: center;
+  border: 4px solid #FDB813; /* Borda amarela da sua marca */
+}
+
+/* PARTE 1: CABEÇALHO (Seu amarelo de marca) */
+.oferta-header-v4 {
+  background: #FDB813; /* Seu amarelo */
+  padding: 25px;
+}
+.oferta-header-v4 h2 {
+  color: #111; /* Texto preto para alto contraste */
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* PARTE 2: CORPO (Branco e limpo) */
+.oferta-body-v4 {
+  padding: 30px 35px;
+  color: #333;
+}
+
+.oferta-lista-v4 {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+.oferta-lista-v4 li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+.icon-check-v4 {
+  color: #27ae60;
+  font-size: 1.5rem;
+  margin-right: 15px;
+  font-weight: bold;
+}
+.oferta-lista-v4 li strong {
+  color: #111;
+  font-weight: 700;
+  flex-grow: 1; /* Empurra o valor para a direita */
+}
+.valor-item {
+  font-size: 0.95rem;
+  color: #777;
+}
+
+.divider-v4 {
+  border: 0;
+  height: 2px;
+  background-color: #f0f0f0;
+  margin: 25px auto;
+}
+
+/* O PREÇO (O GRANDE IMPACTO) */
+.preco-wrapper-v4 {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.preco-bloco-de, .preco-bloco-por {
+  flex: 1;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.preco-bloco-de {
+  background-color: #fbeae8; /* Fundo vermelho claro */
+  border: 1px solid #e74c3c;
+}
+.preco-bloco-por {
+  background-color: #e8f7ec; /* Fundo verde claro */
+  border: 1px solid #27ae60;
+}
+
+.preco-wrapper-v4 .label {
+  font-size: 1rem;
+  color: #555;
+  font-weight: 700;
+  display: block;
+}
+.preco-antigo {
+  font-size: 2.2rem;
+  color: #e74c3c;
+  text-decoration: line-through 3px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.preco-novo {
+  font-size: 3.2rem; /* PREÇO NOVO EM DESTAQUE */
+  color: #27ae60;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* BOTÃO CTA */
+.cta-button-v4 {
+  display: block;
+  width: 93%;
+  background: linear-gradient(180deg, #FDB813, #ff9500); /* Gradiente mais forte */
+  color: #111;
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding: 18px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  line-height: 1.3;
+  animation: blink-urgent 1.5s infinite; /* 1.5s é mais rápido e urgente */
+}
+.cta-button-v4 span { /* Subtexto do botão */
+  font-size: 0.9rem;
+  font-weight: 400;
+  display: block;
+  text-transform: none;
+  opacity: 0.8;
+}
+.cta-button-v4:hover {
+  background: linear-gradient(180deg, #ffb400, #ff9500);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(255, 149, 0, 0.4);
+  animation-play-state: paused; /* Pausa a animação ao passar o mouse */
+}
+
+.countdown-title {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* PARTE 3: RODAPÉ (Cinza claro para confiança) */
+.oferta-footer-v4 {
+  background-color: #f7f9fa;
+  padding: 30px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+.oferta-footer-v4 img {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0; /* Não encolhe a imagem */
+}
+.garantia-texto strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+.garantia-texto p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Selo de Segurança Final */
+.security-badge-v4 {
+  background-color: #f0f0f0;
+  color: #777;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-top: 1px solid #e0e0e0;
+}
+
+@keyframes blink-urgent {
+  0% {
+    transform: scale(1);
+    filter: brightness(100%);
+    box-shadow: 0 5px 15px rgba(253, 184, 19, 0.3);
+  }
+  50% {
+    transform: scale(1.03); /* Salta um pouco mais */
+    filter: brightness(115%); /* Fica mais "brilhante" */
+    box-shadow: 0 8px 30px rgba(255, 149, 0, 0.6); /* Sombra mais forte */
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(100%);
+    box-shadow: 0 5px 15px rgba(253, 184, 19, 0.3);
+  }
+}
+
+/* ==========================================================================
+   Bloco FAQ perguntas
+   ========================================================================== */
+
+.bloco-8 {
+    background-color: #111;       /* Fundo preto fosco. */
+    padding: 60px 20px;           /* Espaçamento interno. */
+    color: #fff;                  /* Cor de texto padrão para esta seção: branco. */
+    font-family: "Arial", sans-serif; /* Define a fonte. */
+}
+
+/* Título */
+.bloco-8 h3 {
+    text-align: center;           /* Centraliza o título do FAQ. */
+    font-size: 26px;              /* Tamanho da fonte. */
+    margin-bottom: 30px;          /* Margem em baixo. */
+    color: #fff;                  /* Cor do texto: branco. */
+}
+
+/* Cada pergunta (card branco) */
+.bloco-8 details {
+    background: #fff;             /* Fundo branco para cada item do FAQ. */
+    border-radius: 6px;           /* Cantos arredondados. */
+    padding: 15px 20px;           /* Espaçamento interno. */
+    margin: 12px auto;            /* Margem vertical e centralizado horizontalmente. */
+    max-width: 700px;             /* Largura máxima. */
+    cursor: pointer;              /* Mostra o cursor de "mãozinha" para indicar que é clicável. */
+    transition: all 0.3s ease;    /* Transição suave. */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15); /* Sombra suave. */
+}
+
+/* Hover para destacar */
+.bloco-8 details:hover {
+    transform: translateY(-2px);  /* Move o card 2px para cima no hover. */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25); /* Aumenta a sombra. */
+}
+
+/* Texto do resumo (a pergunta clicável) */
+.bloco-8 summary {
+    font-weight: bold;            /* Texto em negrito. */
+    font-size: 16px;              /* Tamanho da fonte. */
+    color: #222;                  /* Cor do texto: cinza bem escuro. */
+    list-style: none;             /* Remove o marcador padrão (triângulo). */
+    display: flex;                /* Ativa o Flexbox. */
+    justify-content: space-between;/* Coloca a pergunta e a seta em lados opostos. */
+    align-items: center;          /* Alinha a pergunta e a seta verticalmente. */
+}
+
+/* Remove o triângulo padrão */
+.bloco-8 summary::-webkit-details-marker {
+    display: none;                /* Esconde o marcador padrão em navegadores como Chrome e Safari. */
+}
+
+/* Adiciona seta amarela personalizada */
+.bloco-8 summary::after {
+    content: "▼";                 /* Cria um pseudo-elemento com o conteúdo "▼". */
+    font-size: 16px;              /* Tamanho da seta. */
+    color: #ffb400;               /* Cor da seta: amarelo. */
+    transition: transform 0.3s ease; /* Animação suave para a rotação. */
+}
+
+/* Rotação da seta ao abrir */
+.bloco-8 details[open] summary::after { /* Aplica-se apenas quando o 'details' está aberto. */
+    transform: rotate(180deg);    /* Roda a seta 180 graus (para cima). */
+}
+
+/* Resposta */
+.bloco-8 details p {
+    margin-top: 12px;             /* Espaço acima do texto da resposta. */
+    font-size: 15px;              /* Tamanho da fonte. */
+    color: #333;                  /* Cor do texto: cinza escuro. */
+    line-height: 1.5;             /* Espaçamento entre linhas. */
+}
+
+/* CTA Amarelo */
+.bloco-8 .cta-button {
+    display: inline-block;        /* Permite definir padding, etc. */
+    margin-top: 40px;             /* Espaço acima do botão. */
+    background: linear-gradient(135deg, #ffd900, #ffb400); /* Gradiente amarelo. */
+    color: #000;                  /* Cor do texto: preto. */
+    font-weight: bold;            /* Texto em negrito. */
+    font-size: 18px;              /* Tamanho da fonte. */
+    padding: 16px 28px;           /* Espaçamento interno. */
+    border-radius: 40px;          /* Cantos bem arredondados (formato de pílula). */
+    text-decoration: none;        /* Remove sublinhado. */
+    box-shadow: 0 6px 16px rgba(255, 185, 0, 0.4); /* Sombra com cor. */
+    transition: all 0.3s ease;    /* Transição suave. */
+}
+
+.bloco-8 .cta-button:hover {
+    background: linear-gradient(135deg, #ffb400, #ff9500); /* Muda o gradiente. */
+    transform: translateY(-2px);  /* Move para cima. */
+    box-shadow: 0 8px 20px rgba(255, 149, 0, 0.6); /* Aumenta a sombra. */
+}
+
+/* ======================================================
+   AJUSTE GERAL (VERSÃO REFORÇADA) PARA TELEMÓVEL
+   ======================================================
+@media (max-width: 768px) {       /* Regras para ecrãs com 768px de largura ou menos.
+
+    .hero-section,
+    .bloco-cinza,
+    .apresentacao-guia,
+    .conteudo-guia,
+    .bonus-section,
+    #bloco7,
+    .author-bio-section,
+    .results-section,
+    .bloco-8 {
+        padding-top: 45px !important;      /* FORÇA o espaçamento interno de cima a ser 45px. 
+        padding-bottom: 45px !important;   /* FORÇA o espaçamento interno de baixo a ser 45px. 
+    }
+
+    #oferta {
+        margin-top: 45px !important;       /* FORÇA a margem de cima a ser 45px. 
+        margin-bottom: 45px !important;    /* FORÇA a margem de baixo a ser 45px. 
+        padding: 30px 20px !important;     /* FORÇA o espaçamento interno. */
+    }
+}
+
+/* ==========================================================================
+   Estilos do Cronómetro da Oferta
+   ========================================================================== */
+
+.countdown-timer-container {
+    margin: 40px 0;
+}
+
+.countdown-title {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 20px;
+}
+
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.time-block {
+    background-color: #212529; /* Fundo escuro para os blocos */
+    color: #FFFFFF;
+    padding: 10px 15px;
+    border-radius: 5px;
+    min-width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-block span {
+    display: block;
+}
+
+.time-block span:first-child {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.time-block .label {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+
+
+/* --- ESTILOS PARA O BLOCO DO AUTOR --- */
+
+/* Contêiner que agrupa o avatar e o texto */
+.info-autor {
+  display: flex; /* Faz o avatar e o texto ficarem lado a lado */
+  align-items: center; /* Alinha verticalmente no centro */
+  justify-content: center; /* Centraliza o bloco do autor dentro do slide */
+  margin-top: 30px; /* Espaço entre o depoimento e as informações do autor */
+}
+
+/* Estilo para a "bolinha" do avatar */
+.avatar {
+  width: 50px; /* Largura da bolinha */
+  height: 50px; /* Altura da bolinha */
+  background-color: #007BFF; /* A cor azul que você mostrou */
+  border-radius: 50%; /* Transforma o quadrado em um círculo perfeito */
+  display: flex; /* Para centralizar o texto dentro da bolinha */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  color: #ffffff; /* Cor do texto das iniciais */
+  font-weight: bold;
+  font-size: 18px; /* Tamanho das iniciais */
+  margin-right: 15px; /* Espaço entre a bolinha e o texto */
+  flex-shrink: 0; /* Impede que o avatar encolha em telas menores */
+}
+
+/* Estilo para o texto do autor (nome e descrição) */
+.texto-autor {
+  text-align: left; /* Alinha o texto à esquerda dentro do seu próprio bloco */
+}
+
+.nome-autor {
+  font-size: 18px; /* Tamanho do nome */
+  font-weight: bold;
+  color: #ffffff; /* Cor branca para o nome */
+  margin: 0; /* Remove margens padrão de parágrafo */
+}
+
+.descricao-autor {
+  font-size: 14px; /* Tamanho da descrição */
+  color: #b0b0b0; /* Cor cinza claro para a descrição */
+  margin: 0; /* Remove margens padrão de parágrafo */
+  line-height: 1.4; /* Espaçamento entre as linhas */
+}
+
+/* Remover os estilos antigos do .autor-depoimento, pois não será mais usado diretamente */
+/* Você pode apagar esta regra se ela ainda existir */
+.autor-depoimento {
+  /* Estes estilos serão substituídos pelos .nome-autor e .descricao-autor */
+  /* font-size: 16px; */
+  /* font-weight: bold; */
+  /* color: #00aaff; */
+}
+
+/* ==========================================================================
+   ### INÍCIO DO BLOCO DE RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS ###
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    /* 1. Substitui as imagens de fundo por uma cor sólida e ajusta a altura */
+    /* Usamos !important para garantir que estas regras tenham prioridade. */
+
+    .hero-section,
+    .bloco-cinza2,
+    .bloco-cinza3,
+    .conteudo-guia,
+    .bloco-cinza7 {
+        background-image: none !important; /* Remove a imagem de fundo */
+        background-color: #000000 !important; /* Define um fundo preto sólido */
+        height: auto !important; /* Permite que a altura se ajuste ao conteúdo */
+        min-height: initial !important; /* Reseta a altura mínima */
+        padding: 40px 20px !important; /* Adiciona um bom espaçamento vertical */
+    }
+
+    /* 2. Ajusta o layout das seções para serem verticais e de largura total */
+
+    .bloco-cinza2,
+    .bloco-cinza3,
+    .bloco-cinza7 {
+        justify-content: center !important; /* Centraliza o conteúdo horizontalmente */
+        padding: 40px 20px !important;
+    }
+
+    .texto-coluna-2,
+    .texto-coluna-3,
+    .container-bloco-7 {
+        max-width: 100% !important; /* O conteúdo agora ocupa a largura total */
+        text-align: center !important; /* Centraliza o texto */
+    }
+
+    .failure-item2 h3, .failure-item2 p,
+    .failure-item3 h3, .failure-item3 p,
+    .failure-item7 h3, .failure-item7 p {
+        text-align: left; /* Mantém o texto dos itens alinhado à esquerda para leitura */
+    }
+    
+    .conteudo-guia {
+        align-items: center !important; /* Centraliza o conteúdo na horizontal */
+    }
+    
+    .conteudo-guia .container-apresentacao,
+    .conteudo-guia .container-split-guia {
+        padding-left: 0 !important; /* Remove espaçamentos extras que tínhamos antes */
+    }
+
+
+    /* 3. Ajusta o tamanho dos textos para melhor leitura no telemóvel */
+
+    .hero-texto h1 {
+        font-size: 2.5em; /* Reduz o tamanho do título principal */
+    }
+
+    .texto-coluna-2 h2,
+    .texto-coluna-3 h2,
+    .conteudo-guia h1,
+    .container-bloco-7 h1 {
+        font-size: 2.2em; /* Reduz o tamanho dos outros títulos de seção */
+        line-height: 1.3;
+    }
+    
+    .author-text p {
+        font-size: 1.1em; /* Ajusta o texto da biografia */
+    }
+}
+
+/* ==========================================================================
+   ### FIM DO BLOCO DE RESPONSIVIDADE ###
+   ========================================================================== */
+@media (max-width: 768px) {
+    .bloco-cinza7 {
+        padding: 10px 10px;          /* Ajusta o padding para dispositivos móveis */
+    }
+
+    .container-bloco-7 {
+        padding: 0 0px;             /* Ajusta o padding para dispositivos móveis */
+        max-width: 100%;             /* Permite que a largura do item ocupe 100% */
+    }
+
+    .failure-item7 {
+        max-width: 100%;             /* Permite que a largura do item ocupe 100% */
+        text-align: center;          /* Centraliza o texto para telas pequenas */
+        padding-left: 0;
+    }
+
+    .failure-item7 p {
+        font-size: 1em;              /* Ajusta o tamanho da fonte */
+        padding-left: 0;
+    }
+
+    .bloco-cinza7 h1 {
+        font-size: 2em;              /* Ajusta o tamanho do título para telas pequenas */
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-split-guia {
+        flex-direction: column;    /* Empilha as colunas verticalmente */
+        gap: 20px;                 /* Reduz o espaço entre as colunas */
+    }
+
+    .guia-texto, .guia-imagem {
+        max-width: 100%;           /* As colunas agora ocupam 100% da largura */
+    }
+
+    .guia-texto h4 {
+        padding-left: 0;           /* Remove o padding à esquerda */
+    }
+
+    .guia-texto ul {
+        padding-left: 0;           /* Remove o padding da lista */
+    }
+
+    .conteudo-guia .container-apresentacao h1 {
+        font-size: 2em;            /* Ajusta o tamanho do título em telas pequenas */
+        padding-left: 0;           /* Remove o padding à esquerda do título */
+    }
+}
+

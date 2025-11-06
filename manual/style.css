@@ -1,0 +1,774 @@
+body {
+  background: #111;
+}
+
+/* ================================== */
+/* === ESTILOS HERO - MANUAL ANTIBLOQUEIO === */
+/* ================================== */
+
+/* --- Configuração da Seção --- */
+.secao-hero-manual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Faz a seção ocupar a tela inteira */
+  padding: 80px 40px;
+  background-color: #111; /* Fundo escuro */
+  overflow: hidden; /* Evita barras de rolagem indesejadas */
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px; /* Espaço entre as colunas de texto e imagem */
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* --- Coluna da Esquerda (Conteúdo) --- */
+.hero-conteudo {
+  flex: 1; /* Ocupa metade do espaço */
+  max-width: 550px;
+}
+
+.hero-conteudo h1 {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus títulos */
+  font-size: 3.2em;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #FFFFFF;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.hero-conteudo h1 .highlight {
+  color: #FFD700; /* Sua cor de destaque */
+}
+
+.hero-subheadline {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus parágrafos */
+  font-size: 1.2em;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+/* --- Estilos do Formulário (Mirando nas classes do MailerLite) --- */
+.form-control {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 15px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 1em;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #FFD700;
+  transform: scale(1.02);
+}
+
+button.primary {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #FFD700;
+  color: #111;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.primary:hover {
+  transform: scale(1.03) translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(255, 215, 0, 0.3);
+}
+
+/* --- Coluna da Direita (O "Palco" 3D) --- */
+.hero-capa-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 450px;
+  perspective: 1500px; /* Aumentei a perspectiva para um efeito mais sutil */
+}
+
+/* --- O NOVO CARD 3D --- */
+.capa-card-3d {
+  background-color: #2a2a2a; /* Um fundo para o card, mais escuro que a capa */
+  padding: 15px; /* Cria uma "moldura" ao redor da imagem */
+  border-radius: 12px; /* Bordas arredondadas para o card */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6); /* Sombra para dar profundidade */
+  
+  /* A inclinação 3D agora é aplicada no CARD, não na imagem */
+  transform: rotateY(-15deg) rotateX(5deg);
+  transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+}
+
+.capa-card-3d:hover {
+  /* O card todo "levanta" e inclina mais */
+  transform: rotateY(-18deg) rotateX(8deg) scale(1.05) translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* --- A Imagem (Dentro do Card) --- */
+.hero-capa-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Bordas da imagem, mais justas que as do card */
+  
+  /* REMOVEMOS a inclinação e a sombra daqui */
+  /* OPCIONAL: Isso faz a imagem "flutuar" um pouco acima do card */
+  transform: translateZ(20px); 
+}
+
+
+/* --- Responsividade para Celular --- */
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .secao-hero-manual {
+    min-height: auto;
+    padding: 60px 20px;
+  }
+  .hero-conteudo h1 {
+    font-size: 2.5em;
+  }
+  .hero-conteudo {
+    order: 2;
+  }
+  .hero-capa-container {
+    order: 1;
+    margin-bottom: 40px;
+    width: 70%;
+    max-width: 300px;
+    perspective: none; /* Desativa 3D no mobile */
+  }
+
+  /* --- AJUSTES NO MOBILE --- */
+  .capa-card-3d {
+    /* Removemos a inclinação 3D no mobile */
+    transform: none;
+    padding: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Sombra mais simples */
+  }
+  
+  .hero-capa-container img {
+    transform: none; /* Remove o 'translateZ' no mobile */
+  }
+
+  .capa-card-3d:hover {
+    /* Mantém apenas um 'scale' sutil no hover mobile (se houver) */
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  }
+}
+
+
+/* ================================== */
+/* === ESTILOS SEÇÃO 2: PROBLEMA === */
+/* ================================== */
+
+.secao-problema {
+  padding: 80px 40px;
+  background-color: #1a1a1a; /* Um tom ligeiramente diferente do hero, para criar contraste */
+  text-align: center; /* Centraliza todo o conteúdo */
+}
+
+/* Reutilizando o nosso divisor de brilho */
+.divisor-brilho {
+  width: 350px; /* Largura fixa para o divisor */
+  height: 2px;
+  margin: 0 auto 60px auto; /* Centraliza o divisor e dá espaço abaixo */
+  background: linear-gradient(
+    to right, 
+    transparent 0%, 
+    #FFD700 50%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 15px -5px #FFD700;
+  border-radius: 5px;
+}
+
+.problema-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.secao-problema h2 {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus títulos */
+  font-size: 2.8em;
+  font-weight: bold;
+  color: #FFD700;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.problema-subheadline {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus parágrafos */
+  font-size: 1.3em;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* --- A Lista de Problemas --- */
+.problema-lista {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.problema-item {
+  flex: 1; /* Cada item ocupa o mesmo espaço */
+  background-color: #2a2a2a;
+  padding: 30px;
+  border-radius: 12px;
+  border-top: 3px solid #FFD700; /* Um detalhe na sua cor de destaque */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: left; /* Alinha o texto do card à esquerda */
+}
+
+.problema-icon {
+  font-size: 1.5em;
+  color: #FFD700;
+  font-weight: bold;
+  margin-right: 15px;
+  float: left; /* Faz o ícone flutuar ao lado do texto */
+}
+
+.problema-item p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.1em;
+  color: #ccc;
+  line-height: 1.8;
+  margin: 0;
+  overflow: hidden; /* Garante que o <p> contenha o ícone flutuante */
+}
+
+.problema-item p strong {
+  color: #FFFFFF; /* Dá destaque às palavras-chave */
+}
+
+/* --- Frase de Transição --- */
+.problema-transicao {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  color: #ccc;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto; /* Centraliza o texto */
+}
+
+.problema-transicao strong {
+  color: #FFD700;
+  display: block; /* Faz o "strong" pular para a linha de baixo */
+  margin-top: 10px;
+}
+
+/* --- Responsividade da Seção 2 --- */
+@media (max-width: 768px) {
+  .problema-lista {
+    flex-direction: column; /* Empilha os cards no celular */
+  }
+  
+  .secao-problema h2 {
+    font-size: 2.2em;
+  }
+  
+  .problema-subheadline {
+    font-size: 1.1em;
+  }
+}
+
+
+
+/* ================================== */
+/* === ESTILOS SEÇÃO 3: SOLUÇÃO === */
+/* ================================== */
+
+.secao-solucao {
+  padding: 80px 40px;
+  background-color: #111; /* Voltamos ao fundo principal escuro */
+}
+
+.solucao-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.secao-solucao h2 {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus títulos */
+  font-size: 2.8em;
+  font-weight: bold;
+  color: #FFD700;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.solucao-subheadline {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus parágrafos */
+  font-size: 1.3em;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 50px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- A Lista de Cards --- */
+.solucao-lista {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 coluna por padrão */
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.solucao-card {
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  border: 1px solid #333;
+  text-align: left;
+  overflow: hidden; /* Garante que o border-radius funcione */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solucao-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.solucao-card .card-header {
+  background-color: #2a2a2a;
+  padding: 20px 30px;
+  border-bottom: 1px solid #333;
+}
+
+.solucao-card .card-header span {
+  display: block;
+  font-size: 0.9em;
+  color: #FFD700;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.solucao-card .card-header h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.8em;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.solucao-card .card-conteudo {
+  padding: 30px;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.solucao-card .crime {
+  color: #ccc;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  border-left: 3px solid #E74C3C; /* Cor de "erro" (vermelho suave) */
+}
+
+.solucao-card .antidoto {
+  color: #ccc;
+  margin: 0;
+  padding-left: 20px;
+  border-left: 3px solid #00bf63; /* Cor da "solução" (seu destaque) */
+}
+
+.solucao-card .crime strong,
+.solucao-card .antidoto strong {
+  color: #FFFFFF;
+}
+
+/* --- CTA de Reforço --- */
+.solucao-cta {
+  background-color: #1c1c1c;
+  padding: 30px;
+  border-radius: 12px;
+  border-top: 3px solid #FFD700;
+}
+
+.solucao-cta p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  color: #FFFFFF;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #111;
+  padding: 15px 35px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(255, 215, 0, 0.3);
+}
+
+/* --- Responsividade da Seção 3 --- */
+@media (max-width: 768px) {
+  .secao-solucao h2 {
+    font-size: 2.2em;
+  }
+  .solucao-subheadline {
+    font-size: 1.1em;
+  }
+  .solucao-card .card-header h3 {
+    font-size: 1.5em;
+  }
+}
+
+
+
+/* ==================================================== */
+/* === ESTILOS 'A ESTRATEGA' (VISUAL ORIGINAL "VAZADO") === */
+/* ==================================================== */
+
+.secao-estratega {
+  padding: 80px 20px;
+  position: relative;
+}
+
+/* 1. O nosso novo divisor de brilho */
+.secao-estratega .divisor-brilho {
+  width: 250px;
+  height: 3px;
+  margin: 0 auto 60px auto;
+  background: linear-gradient(
+    to right, 
+    transparent 0%, 
+    #FFD700 50%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 15px -5px #FFD700;
+  border-radius: 5px;
+}
+
+/* 2. O seu card principal (CSS ORIGINAL) */
+.estratega-card {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  /* Note: SEM PADDING AQUI */
+}
+
+/* 3. O wrapper da imagem (CSS ORIGINAL) */
+/* É ISTO QUE CRIA O EFEITO "VAZADO" */
+.estratega-imagem-wrapper {
+  flex-shrink: 0;
+  margin-left: -50px; /* Puxa a imagem para fora */
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+
+/* 4. A imagem (CSS ORIGINAL) */
+.estratega-imagem-wrapper img {
+  width: 350px; /* Largura original */
+  height: auto;
+  border-radius: 15px; /* Bordas arredondadas (não circular) */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* 5. O conteúdo (CSS ORIGINAL) */
+.estratega-conteudo {
+  flex: 1;
+  /* Padding original, aplicado AQUI e não no card */
+  padding: 50px;
+  padding-left: 30px; 
+}
+
+.estratega-conteudo h2 {
+  font-size: 2.5em;
+  color: #FFD700;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.estratega-conteudo p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+.estratega-conteudo blockquote {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-left: 3px solid #FFD700;
+  border-radius: 0 8px 8px 0;
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.7;
+}
+
+/* 6. O nosso novo estilo de link */
+.read-more-link {
+  color: #FFD700;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: letter-spacing 0.3s ease;
+}
+.read-more-link:hover {
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+}
+
+
+/* 7. Responsividade (CSS ORIGINAL) */
+@media (max-width: 900px) {
+  .estratega-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  /* Margem negativa original para o "vazado" no mobile */
+  .estratega-imagem-wrapper {
+    margin: -60px 0 30px 0;
+    width: 80%;
+  }
+  .estratega-imagem-wrapper img {
+    width: 100%;
+  }
+  .estratega-conteudo {
+    padding: 10px 30px 30px;
+  }
+  .estratega-conteudo blockquote {
+    text-align: left;
+  }
+}
+
+/* ================================== */
+/* === ESTILOS SEÇÃO DEPOIMENTOS === */
+/* ================================== */
+
+.secao-depoimentos {
+  padding: 80px 40px;
+  background-color: #1a1a1a; /* Mesmo fundo da Seção 2 e 4 */
+  text-align: center;
+}
+
+/* Reutilizando o divisor de brilho */
+.secao-depoimentos .divisor-brilho {
+  width: 250px;
+  height: 3px;
+  margin: 0 auto 60px auto;
+  background: linear-gradient(
+    to right, 
+    transparent 0%, 
+    #FFD700 50%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 15px -5px #FFD700;
+  border-radius: 5px;
+}
+
+.depoimentos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.secao-depoimentos h2 {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus títulos */
+  font-size: 2.8em;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.depoimentos-subheadline {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus parágrafos */
+  font-size: 1.3em;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 50px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- O Grid dos Depoimentos --- */
+.depoimentos-grid {
+  display: grid;
+  /* Cria 3 colunas de tamanho igual */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.depoimento-card {
+  background-color: #1c1c1c;
+  padding: 35px;
+  border-radius: 12px;
+  /* Borda superior para consistência visual */
+  border-top: 4px solid #FFD700; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: left;
+  position: relative; /* Para posicionar as aspas */
+  padding-top: 50px;
+}
+
+/* As aspas grandes no fundo */
+.depoimento-aspas {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  font-family: 'Playfair Display', serif; /* Uma fonte elegante */
+  font-size: 100px;
+  color: rgba(255, 255, 255, 0.05); /* Quase transparente */
+  line-height: 1;
+  z-index: 1;
+}
+
+.depoimento-estrelas {
+  font-size: 1.2em;
+  color: #FFD700;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2; /* Para ficar na frente das aspas */
+}
+
+.depoimento-card p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.1em;
+  color: #ccc;
+  line-height: 1.8;
+  margin: 0 0 25px 0;
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+.depoimento-autor {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.1em;
+  color: #FFFFFF;
+  font-weight: bold;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Responsividade dos Depoimentos --- */
+@media (max-width: 900px) {
+  .depoimentos-grid {
+    /* Em telas médias, 2 colunas */
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .depoimentos-grid {
+    /* No celular, 1 coluna */
+    grid-template-columns: 1fr;
+  }
+  .secao-depoimentos h2 {
+    font-size: 2.2em;
+  }
+  .depoimentos-subheadline {
+    font-size: 1.1em;
+  }
+}
+
+
+/* ================================== */
+/* === ESTILOS SEÇÃO 5: CTA FINAL === */
+/* ================================== */
+
+.secao-cta-final {
+  padding: 80px 40px;
+  background-color: #111; /* Fundo principal escuro */
+  text-align: center;
+}
+
+.cta-final-container {
+  max-width: 700px; /* Mais estreito para focar no formulário */
+  margin: 0 auto;
+}
+
+.secao-cta-final h2 {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus títulos */
+  font-size: 2.8em;
+  font-weight: bold;
+  color: #FFD700;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.cta-final-subheadline {
+  font-family: 'Arial', sans-serif; /* Use a fonte dos seus parágrafos */
+  font-size: 1.3em;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.cta-final-subheadline strong {
+  color: #FFD700;
+}
+
+.cta-form-wrapper {
+  /* Este wrapper garante que o formulário tenha um limite de largura */
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+}
+
+.cta-privacidade {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9em;
+  color: #888;
+}
+
+.lock-icon {
+  color: #888;
+  margin-right: 5px;
+}
+
+/* --- Responsividade da Seção 5 --- */
+@media (max-width: 768px) {
+  .secao-cta-final h2 {
+    font-size: 2.2em;
+  }
+  .cta-final-subheadline {
+    font-size: 1.1em;
+  }
+}
